@@ -46,6 +46,11 @@ export function Content() {
     setCurrentUser(user);
   };
 
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsUsersShowVisible(false);
+  };
+
   const handleUpdateUser = (id, params, successCallback) => {
     console.log("handleUpdateUser", params);
     axios.patch(`http://localhost:3000/users/${id}.json`, params).then((response) => {
@@ -63,9 +68,11 @@ export function Content() {
     });
   };
 
-  const handleClose = () => {
-    console.log("handleClose");
-    setIsUsersShowVisible(false);
+  const handleDestroyUser = (user) => {
+    console.log("handleDestroyUser", user);
+    axios.delete(`http://localhost:3000/users/${user.id}.json`).then((response) => {
+      setUsers(users.filter((u) => u.id !== user.id));
+    });
   };
 
   useEffect(handleIndexUsers, []);
@@ -75,7 +82,7 @@ export function Content() {
       <UsersNew onCreateUser={handleCreateUser} />
       <UsersIndex users={users} onShowUser={handleShowUser} />
       <Modal show={isUsersShowVisible} onClose={handleClose}>
-        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} />
+        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyuser={handleDestroyUser} />
       </Modal>
     </div>
   );
