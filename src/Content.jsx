@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { UsersIndex } from "./UsersIndex";
+import { UsersNew } from "./UsersNew";
 
 export function Content() {
   const [users, setUsers] = useState([]);
@@ -13,10 +14,34 @@ export function Content() {
     });
   };
 
+  const handleCreateUser = (params, successCallback) => {
+    console.log("handleCreateUser", params);
+    axios
+      .post("http://localhost:3000/users.json", params)
+      .then((response) => {
+        console.log("Create user success:", response.data);
+        setUsers([...users, response.data]);
+        successCallback();
+      })
+      .catch((error) => {
+        console.error("Create user error:", error);
+
+        console.log("Request Config:", error.config);
+
+        if (error.response) {
+          console.log("Error Response Data:", error.response.data);
+          console.log("Error Response Status:", error.response.status);
+          console.log("Error Response Headers:", error.response.headers);
+        }
+      });
+  };
+
   useEffect(handleIndexUsers, []);
+
   return (
-    <main>
+    <div>
+      <UsersNew onCreateUser={handleCreateUser} />
       <UsersIndex users={users} />
-    </main>
+    </div>
   );
 }
