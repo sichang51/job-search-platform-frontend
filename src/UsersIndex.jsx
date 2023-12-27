@@ -7,6 +7,7 @@ export function UsersIndex(props) {
           <h2>{user.user_name}</h2>
           <h2>{user.user_email}</h2>
           <h2>{user.password}</h2>
+          <button onClick={() => props.onShowUser(user)}>More Info</button>
         </div>
       ))}
     </div>
