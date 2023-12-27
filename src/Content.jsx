@@ -5,6 +5,7 @@ import { UsersIndex } from "./UsersIndex";
 import { UsersNew } from "./UsersNew";
 import { UsersShow } from "./UsersShow";
 import { Modal } from "./Modal";
+// import { UsersRoute } from "./UsersRoute";
 
 export function Content() {
   const [users, setUsers] = useState([]);
@@ -82,12 +83,26 @@ export function Content() {
     <div>
       <Routes>
         <Route path="/signup" element={<UsersNew onCreateUser={handleCreateUser} />} />
-
-        {/* <UsersIndex users={users} onShowUser={handleShowUser} />
-        <Modal show={isUsersShowVisible} onClose={handleClose}>
-          <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyuser={handleDestroyUser} />
-        </Modal> */}
+        <Route
+          path="/users"
+          element={
+            <UsersIndex
+              users={users}
+              isUsersShowVisible={isUsersShowVisible}
+              currentUser={currentUser}
+              onClose={handleClose}
+              onCreateUser={handleCreateUser}
+              onShowUser={handleShowUser}
+              onUpdateUser={handleUpdateUser}
+              onDestroyUser={handleDestroyUser}
+            />
+          }
+        />
       </Routes>
+
+      <Modal show={isUsersShowVisible} onClose={handleClose}>
+        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyuser={handleDestroyUser} />
+      </Modal>
     </div>
   );
 }
