@@ -1,17 +1,39 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { JobsIndex } from "./JobsIndex";
+import { JobsNew } from "./JobsNew";
 import { UsersIndex } from "./UsersIndex";
 import { UsersNew } from "./UsersNew";
 import { UsersShow } from "./UsersShow";
 import { Modal } from "./Modal";
-// import { UsersRoute } from "./UsersRoute";
 
 export function Content() {
+  const [jobs, setJobs] = useState([]);
+
   const [users, setUsers] = useState([]);
   const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
+  // Jobs Functions
+
+  const handleIndexJobs = () => {
+    console.log("handleIndexJobs");
+    axios.get("http://localhost:3000/jobs.json").then((reponse) => {
+      console.log(response.data);
+      setJobs(response.data);
+    });
+  };
+
+  const handleCreateJob = (params, successCallback) => {
+    console.log("handleCreateJob", params);
+    axios.post("http://localhost:3000/jobs.json", params).then((response) => {
+      setJobs([...jobs, response.data]);
+      successCallback();
+    });
+  };
+
+  // Users Functions
   const handleIndexUsers = () => {
     console.log("handleIndexUsers");
     axios.get("http://localhost:3000/users.json").then((response) => {
@@ -77,11 +99,14 @@ export function Content() {
     });
   };
 
+  useEffect(handleIndexJobs, []);
   useEffect(handleIndexUsers, []);
 
   return (
     <div>
+      <JobsIndex />
       <Routes>
+        <Route path="/home" element={<JobssNew onCreateJob={handleCreateJob} />} />
         <Route path="/signup" element={<UsersNew onCreateUser={handleCreateUser} />} />
         <Route
           path="/users"
