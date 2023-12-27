@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import { UsersIndex } from "./UsersIndex";
 import { UsersNew } from "./UsersNew";
 import { UsersShow } from "./UsersShow";
@@ -79,11 +80,14 @@ export function Content() {
 
   return (
     <div>
-      <UsersNew onCreateUser={handleCreateUser} />
-      <UsersIndex users={users} onShowUser={handleShowUser} />
-      <Modal show={isUsersShowVisible} onClose={handleClose}>
-        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyuser={handleDestroyUser} />
-      </Modal>
+      <Routes>
+        <Route path="/signup" element={<UsersNew onCreateUser={handleCreateUser} />} />
+
+        {/* <UsersIndex users={users} onShowUser={handleShowUser} />
+        <Modal show={isUsersShowVisible} onClose={handleClose}>
+          <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyuser={handleDestroyUser} />
+        </Modal> */}
+      </Routes>
     </div>
   );
 }
