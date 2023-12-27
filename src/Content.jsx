@@ -46,6 +46,23 @@ export function Content() {
     setCurrentUser(user);
   };
 
+  const handleUpdateUser = (id, params, successCallback) => {
+    console.log("handleUpdateUser", params);
+    axios.patch(`http://localhost:3000/users/${id}.json`, params).then((response) => {
+      setUsers(
+        users.map((user) => {
+          if (user.id === response.data.id) {
+            return response.data;
+          } else {
+            return user;
+          }
+        })
+      );
+      successCallback();
+      handleClose();
+    });
+  };
+
   const handleClose = () => {
     console.log("handleClose");
     setIsUsersShowVisible(false);
@@ -58,7 +75,7 @@ export function Content() {
       <UsersNew onCreateUser={handleCreateUser} />
       <UsersIndex users={users} onShowUser={handleShowUser} />
       <Modal show={isUsersShowVisible} onClose={handleClose}>
-        <UsersShow user={currentUser} />
+        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} />
       </Modal>
     </div>
   );

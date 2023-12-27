@@ -10,10 +10,13 @@ export function UsersNew(props) {
       <h1>New User</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          User Name: <input name="user_name" type="text" />
+          User First Name: <input name="user_fname" type="string" />
         </div>
         <div>
-          User Email: <input name="user_email" type="text" />
+          User Last Name: <input name="user_lname" type="string" />
+        </div>
+        <div>
+          User Email: <input name="user_email" type="string" />
         </div>
         <div>
           Password: <input name="password" type="password" />
