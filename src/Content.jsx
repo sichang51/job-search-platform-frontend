@@ -8,6 +8,8 @@ import { UsersIndex } from "./UsersIndex";
 import { UsersNew } from "./UsersNew";
 import { UsersShow } from "./UsersShow";
 import { Modal } from "./Modal";
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export function Content() {
   const [jobs, setJobs] = useState([]);
