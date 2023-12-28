@@ -10,6 +10,7 @@ import { UsersShow } from "./UsersShow";
 import { Modal } from "./Modal";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Footer } from "./Footer";
 
 export function Content() {
   const [jobs, setJobs] = useState([]);
@@ -42,6 +43,31 @@ export function Content() {
     console.log("handleShowJob", job);
     setIsJobsShowVisible(true);
     setCurrentJob(job);
+  };
+
+  const handleUpdateJob = (id, params, successCallback) => {
+    console.log("handleUpdateJob", params);
+    axios.patch(`http://localhost:3000/jobs/${id}.json`, params).then((response) => {
+      setJobs(
+        jobs.map((job) => {
+          if (job.id === response.data.id) {
+            return response.data;
+          } else {
+            return job;
+          }
+        })
+      );
+      successCallback();
+      handleClose();
+    });
+  };
+
+  const handleDestroyJob = (job) => {
+    console.log("handleDestroyJob", job);
+    axios.delete(`http://localhost:3000/jobs/${job.id}.json`).then((response) => {
+      setJobs(jobs.filter((p) => p.id !== job.id));
+      handleClose();
+    });
   };
 
   // Users Functions--------------------------------------
@@ -152,14 +178,13 @@ export function Content() {
           }
         />
       </Routes>
-
       <Modal className="job-modal" show={isJobsShowVisible} onClose={handleClose}>
-        <JobsShow job={currentJob} />
+        <JobsShow job={currentJob} onUpdateJob={handleUpdateJob} onDestroyJob={handleDestroyJob} />
       </Modal>
-
       <Modal className="user-modal" show={isUsersShowVisible} onClose={handleClose}>
-        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyuser={handleDestroyUser} />
+        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
       </Modal>
+      <Footer />
     </div>
   );
 }

@@ -129,6 +129,26 @@ a:focus {
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
+    height: 100%; /* 100% Full-height */
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1;
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-x: hidden;
+    display: block;
+}
+
+.row > .col {
+  display: flex;
+  flex: 1;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+  min-height: 90vh;
+  height: 100%;
 }
 
 #sidebar.active {

@@ -8,6 +8,7 @@ export function JobsIndex(props) {
         <div key={job.id}>
           <h2>{job.job_title}</h2>
           <h3>{job.company_id}</h3>
+          <h3>{job.co_name}</h3>
           <h3>{job.job_description}</h3>
           <h3>{job.job_location}</h3>
           <button onClick={() => props.onShowJob(job)}>More Info</button>
