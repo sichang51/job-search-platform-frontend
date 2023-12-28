@@ -8,7 +8,7 @@ export function JobsNew(props) {
   return (
     <div>
       <h1>New Job</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           Job Name: <input name="job_title" type="string" />
         </div>
@@ -30,7 +30,7 @@ export function JobsNew(props) {
         <div>
           Salary Range: <input name="job_salary_range" type="string" />
         </div>
-        <button type="submit">Create photo</button>
+        <button type="submit">Create Job</button>
       </form>
     </div>
   );

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { JobsIndex } from "./JobsIndex";
 import { JobsNew } from "./JobsNew";
+import { JobsShow } from "./JobsShow";
 import { UsersIndex } from "./UsersIndex";
 import { UsersNew } from "./UsersNew";
 import { UsersShow } from "./UsersShow";
@@ -10,7 +11,9 @@ import { Modal } from "./Modal";
 
 export function Content() {
   const [jobs, setJobs] = useState([]);
-
+  const [isJobsShowVisible, setIsJobsShowVisible] = useState(false);
+  const [currentJob, setCurrentJob] = useState({});
+  // Users------------------------------------------
   const [users, setUsers] = useState([]);
   const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
@@ -19,7 +22,7 @@ export function Content() {
 
   const handleIndexJobs = () => {
     console.log("handleIndexJobs");
-    axios.get("http://localhost:3000/jobs.json").then((reponse) => {
+    axios.get("http://localhost:3000/jobs.json").then((response) => {
       console.log(response.data);
       setJobs(response.data);
     });
@@ -33,7 +36,13 @@ export function Content() {
     });
   };
 
-  // Users Functions
+  const handleShowJob = (job) => {
+    console.log("handleShowJob", job);
+    setIsJobsShowVisible(true);
+    setCurrentJob(job);
+  };
+
+  // Users Functions--------------------------------------
   const handleIndexUsers = () => {
     console.log("handleIndexUsers");
     axios.get("http://localhost:3000/users.json").then((response) => {
@@ -73,6 +82,7 @@ export function Content() {
   const handleClose = () => {
     console.log("handleClose");
     setIsUsersShowVisible(false);
+    setIsJobsShowVisible(false);
   };
 
   const handleUpdateUser = (id, params, successCallback) => {
@@ -106,8 +116,24 @@ export function Content() {
     <div>
       <JobsIndex />
       <Routes>
-        <Route path="/home" element={<JobssNew onCreateJob={handleCreateJob} />} />
+        <Route path="/home" element={<JobsNew onCreateJob={handleCreateJob} />} />
+        <Route
+          path="/jobs"
+          element={
+            <JobsIndex
+              jobs={jobs}
+              isJobsShowVisible={isJobsShowVisible}
+              onShowJob={handleShowJob}
+              onClose={handleClose}
+              onCreateUser={handleCreateUser}
+              onShowUser={handleShowUser}
+              onUpdateUser={handleUpdateUser}
+              onDestroyUser={handleDestroyUser}
+            />
+          }
+        />
         <Route path="/signup" element={<UsersNew onCreateUser={handleCreateUser} />} />
+
         <Route
           path="/users"
           element={
@@ -125,7 +151,11 @@ export function Content() {
         />
       </Routes>
 
-      <Modal show={isUsersShowVisible} onClose={handleClose}>
+      <Modal className="job-modal" show={isJobsShowVisible} onClose={handleClose}>
+        <JobsShow job={currentJob} />
+      </Modal>
+
+      <Modal className="user-modal" show={isUsersShowVisible} onClose={handleClose}>
         <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyuser={handleDestroyUser} />
       </Modal>
     </div>
