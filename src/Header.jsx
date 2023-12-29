@@ -7,7 +7,7 @@ export function Header() {
       <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#023020" }} data-bs-theme="dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            Job Hound
           </a>
           <button
             className="navbar-toggler"
