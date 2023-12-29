@@ -26,7 +26,7 @@ export function Content() {
 
   const handleIndexJobs = () => {
     console.log("handleIndexJobs");
-    axios.get("/jobs.json").then((response) => {
+    axios.get("http://localhost:3000/jobs.json").then((response) => {
       console.log(response.data);
       setJobs(response.data);
     });
@@ -34,10 +34,16 @@ export function Content() {
 
   const handleCreateJob = (params, successCallback) => {
     console.log("handleCreateJob", params);
-    axios.post("/jobs.json", params).then((response) => {
-      setJobs([...jobs, response.data]);
-      successCallback();
-    });
+    axios
+      .post("http://localhost:3000/jobs.json", params)
+      .then((response) => {
+        setJobs([...jobs, response.data]);
+        successCallback();
+        window.location.href = "/jobs";
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleShowJob = (job) => {
@@ -48,7 +54,7 @@ export function Content() {
 
   const handleUpdateJob = (id, params, successCallback) => {
     console.log("handleUpdateJob", params);
-    axios.patch(`/jobs/${id}.json`, params).then((response) => {
+    axios.patch(`http://localhost:3000/jobs/${id}.json`, params).then((response) => {
       setJobs(
         jobs.map((job) => {
           if (job.id === response.data.id) {
@@ -65,7 +71,7 @@ export function Content() {
 
   const handleDestroyJob = (job) => {
     console.log("handleDestroyJob", job);
-    axios.delete(`/jobs/${job.id}.json`).then((response) => {
+    axios.delete(`http://localhost:3000/jobs/${job.id}.json`).then((response) => {
       setJobs(jobs.filter((p) => p.id !== job.id));
       handleClose();
     });
@@ -74,7 +80,7 @@ export function Content() {
   // Users Functions----------------------------------------------------
   const handleIndexUsers = () => {
     console.log("handleIndexUsers");
-    axios.get("/users.json").then((response) => {
+    axios.get("http://localhost:3000/users.json").then((response) => {
       console.log(response.data);
       setUsers(response.data);
     });
@@ -83,7 +89,7 @@ export function Content() {
   const handleCreateUser = (params, successCallback) => {
     console.log("handleCreateUser", params);
     axios
-      .post("/users.json", params)
+      .post("http://localhost:3000/users.json", params)
       .then((response) => {
         console.log("Create user success:", response.data);
         setUsers([...users, response.data]);
@@ -116,7 +122,7 @@ export function Content() {
 
   const handleUpdateUser = (id, params, successCallback) => {
     console.log("handleUpdateUser", params);
-    axios.patch(`/users/${id}.json`, params).then((response) => {
+    axios.patch(`http://localhost:3000/users/${id}.json`, params).then((response) => {
       setUsers(
         users.map((user) => {
           if (user.id === response.data.id) {
@@ -133,7 +139,7 @@ export function Content() {
 
   const handleDestroyUser = (user) => {
     console.log("handleDestroyUser", user);
-    axios.delete(`/users/${user.id}.json`).then((response) => {
+    axios.delete(`http://localhost:3000/users/${user.id}.json`).then((response) => {
       setUsers(users.filter((u) => u.id !== user.id));
     });
   };
@@ -143,25 +149,20 @@ export function Content() {
 
   return (
     <div>
-      <JobsIndex />
       <Routes>
         <Route path="/home" element={<JobsNew onCreateJob={handleCreateJob} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/jobs/new" elment={<JobsNew onCreateJob={handleCreateJob} />} />
-        <Route path="/" element={<JobsIndex myJobs={jobs} onShowJob={handleShowJob} />} />
+        {/* <Route path="/" element={<JobsIndex myJobs={jobs} onShowJob={handleShowJob} />} /> */}
         <Route
           path="/jobs"
           element={
             <JobsIndex
-              jobs={jobs}
+              myJobs={jobs}
               isJobsShowVisible={isJobsShowVisible}
               onShowJob={handleShowJob}
               onClose={handleClose}
-              onCreateUser={handleCreateUser}
-              onShowUser={handleShowUser}
-              onUpdateUser={handleUpdateUser}
-              onDestroyUser={handleDestroyUser}
             />
           }
         />
