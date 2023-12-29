@@ -184,7 +184,6 @@ export function Content() {
       <Modal className="user-modal" show={isUsersShowVisible} onClose={handleClose}>
         <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
       </Modal>
-      <Footer />
     </div>
   );
 }
