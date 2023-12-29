@@ -21,7 +21,7 @@ export function Content() {
   const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
-  // Jobs Functions
+  // Jobs Functions----------------------------------
 
   const handleIndexJobs = () => {
     console.log("handleIndexJobs");
@@ -70,7 +70,7 @@ export function Content() {
     });
   };
 
-  // Users Functions--------------------------------------
+  // Users Functions----------------------------------------------------
   const handleIndexUsers = () => {
     console.log("handleIndexUsers");
     axios.get("http://localhost:3000/users.json").then((response) => {
