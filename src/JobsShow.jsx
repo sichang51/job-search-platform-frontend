@@ -14,9 +14,11 @@ export function JobsShow(props) {
   return (
     <div className="modal-user-info">
       <h1>Job Details</h1>
+      <img src={props.job.company.co_logo} alt="logo" className="company-logo" width="100" height="125" />
       <p>Company ID: {props.job.company_id}</p>
       <p>Company Name: {props.job.co_name}</p>
       <p>Job Title: {props.job.job_title}</p>
+      <p>Job Description: {props.job.job_description}</p>
       <p>Location: {props.job.job_location}</p>
       <p>Job Type: {props.job.job_type}</p>
       <p>Salary: {props.job.job_salary_range}</p>

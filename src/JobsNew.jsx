@@ -7,7 +7,7 @@ export function JobsNew(props) {
 
   return (
     <div>
-      <h1>New Job</h1>
+      <h2>New Job</h2>
       <form onSubmit={handleSubmit}>
         <div>
           Job Name: <input name="job_title" type="string" />

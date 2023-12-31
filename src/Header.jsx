@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export function Header() {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#023020" }} data-bs-theme="dark">
+      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#407c87" }} data-bs-theme="dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Job Hound

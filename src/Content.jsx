@@ -12,6 +12,18 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
+// Import the new component
+import { Homepage } from "./Homepage.jsx";
+
+const getAuthToken = () => {
+  return axios
+    .get("http://localhost:3000/auth_token")
+    .then((response) => response.data.auth_token)
+    .catch((error) => {
+      console.error("Error fetching authentication token:", error);
+      return null;
+    });
+};
 
 export function Content() {
   const [jobs, setJobs] = useState([]);
@@ -20,7 +32,7 @@ export function Content() {
   // Users------------------------------------------
   const [users, setUsers] = useState([]);
   const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(null);
 
   // Jobs Functions----------------------------------
 
@@ -144,16 +156,49 @@ export function Content() {
     });
   };
 
+  // session--------------------
+
+  const fetchUserInfo = () => {
+    const authToken = getAuthToken();
+
+    if (authToken) {
+      axios
+        .get("http://localhost:3000/users/show_current_user", {
+          headers: {
+            Authorization: "Bearer ${authToken}",
+          },
+        })
+        .then((response) => {
+          setCurrentUser(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching user information:", error);
+        });
+    }
+  };
+
   useEffect(handleIndexJobs, []);
   useEffect(handleIndexUsers, []);
+  useEffect(() => {
+    fetchUserInfo();
+  }, []);
 
   return (
     <div>
+      {currentUser && (
+        <div>
+          <h2>User Information</h2>
+          <p>Name: {currentUser.user_name}</p>
+          <p>Email: {currentUser.user_email}</p>
+        </div>
+      )}
       <Routes>
         <Route path="/home" element={<JobsNew onCreateJob={handleCreateJob} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/jobs/new" elment={<JobsNew onCreateJob={handleCreateJob} />} />
+        <Route path="/jobs/new" element={<JobsNew onCreateJob={handleCreateJob} />} />
+        {/* used for the homepage below */}
+        <Route path="/" element={<Homepage />} />
         {/* <Route path="/" element={<JobsIndex myJobs={jobs} onShowJob={handleShowJob} />} /> */}
         <Route
           path="/jobs"
