@@ -7,9 +7,9 @@ export function ArticlesIndex({ articles }) {
     <div className="articles-container">
       {articles.map((article) => (
         <div key={article.title} className="article">
-          <img src={article.urlToImage} alt={article.title} width="300" height="250" />
-          <h3>{article.title}</h3>
-          <p>{article.description || "No description available"}</p>
+          <img src={article.urlToImage} alt={article.title} width="150" height="125" />
+          <h3 className="article-title-small">{article.title}</h3>
+          <p className="article-description-small">{article.description || "No description available"}</p>
         </div>
       ))}
       {/* <h1>All Articles</h1>

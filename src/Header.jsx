@@ -2,13 +2,26 @@ import { LogoutLink } from "./LogoutLink";
 import { Link } from "react-router-dom";
 
 export function Header() {
+  const headerImageUrl =
+    "https://static.vecteezy.com/system/resources/thumbnails/010/789/780/small/camping-illustration-isolated-on-transparent-background-png.png";
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#407c87" }} data-bs-theme="dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link to="/" className="navbar-brand logo-container">
+            <img src={headerImageUrl} alt="Header" className="header-image" />
+            <div className="logo-text">
+              <h4>Job Hound</h4>
+            </div>
+            <div>
+              <h6>Providing employment solutions for everyone </h6>
+            </div>
+          </Link>
+          {/* <a className="navbar-brand" href="#">
             Job Hound
-          </a>
+          </a> */}
+
           <button
             className="navbar-toggler"
             type="button"

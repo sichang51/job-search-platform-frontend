@@ -14,6 +14,7 @@ import { Signup } from "./Signup";
 import { Login } from "./Login";
 // Import the new component
 import { Homepage } from "./Homepage.jsx";
+import { Navigate } from "react-router-dom";
 
 const getAuthToken = () => {
   return axios
@@ -32,7 +33,6 @@ export function Content() {
   // Users------------------------------------------
   const [users, setUsers] = useState([]);
   const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
 
   // Jobs Functions----------------------------------
 
@@ -123,7 +123,6 @@ export function Content() {
   const handleShowUser = (user) => {
     console.log("handleShowUser", user);
     setIsUsersShowVisible(true);
-    setCurrentUser(user);
   };
 
   const handleClose = () => {
@@ -158,45 +157,21 @@ export function Content() {
 
   // session--------------------
 
-  const fetchUserInfo = () => {
-    const authToken = getAuthToken();
-
-    if (authToken) {
-      axios
-        .get("http://localhost:3000/users/show_current_user", {
-          headers: {
-            Authorization: "Bearer ${authToken}",
-          },
-        })
-        .then((response) => {
-          setCurrentUser(response.data);
-        })
-        .catch((error) => {
-          console.error("Error fetching user information:", error);
-        });
-    }
-  };
-
   useEffect(handleIndexJobs, []);
   useEffect(handleIndexUsers, []);
-  useEffect(() => {
-    fetchUserInfo();
-  }, []);
 
   return (
     <div>
-      {currentUser && (
-        <div>
-          <h2>User Information</h2>
-          <p>Name: {currentUser.user_name}</p>
-          <p>Email: {currentUser.user_email}</p>
-        </div>
-      )}
       <Routes>
         <Route path="/home" element={<JobsNew onCreateJob={handleCreateJob} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/jobs/new" element={<JobsNew onCreateJob={handleCreateJob} />} />
+        <Route
+          path="/jobs/new"
+          element={localStorage.jwt ? <JobsNew onCreateJob={handleCreateJob} /> : <Navigate to="/login" replace />}
+        />
+
+        {/* <Route path="/jobs/new" element={<JobsNew onCreateJob={handleCreateJob} />} /> */}
         {/* used for the homepage below */}
         <Route path="/" element={<Homepage />} />
         {/* <Route path="/" element={<JobsIndex myJobs={jobs} onShowJob={handleShowJob} />} /> */}
@@ -219,7 +194,6 @@ export function Content() {
             <UsersIndex
               users={users}
               isUsersShowVisible={isUsersShowVisible}
-              currentUser={currentUser}
               onClose={handleClose}
               onCreateUser={handleCreateUser}
               onShowUser={handleShowUser}
@@ -233,7 +207,7 @@ export function Content() {
         <JobsShow job={currentJob} onUpdateJob={handleUpdateJob} onDestroyJob={handleDestroyJob} />
       </Modal>
       <Modal className="user-modal" show={isUsersShowVisible} onClose={handleClose}>
-        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
+        <UsersShow onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
       </Modal>
     </div>
   );
