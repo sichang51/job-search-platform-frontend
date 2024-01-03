@@ -33,6 +33,7 @@ export function Content() {
   // Users------------------------------------------
   const [users, setUsers] = useState([]);
   const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   // Jobs Functions----------------------------------
 
@@ -123,6 +124,7 @@ export function Content() {
   const handleShowUser = (user) => {
     console.log("handleShowUser", user);
     setIsUsersShowVisible(true);
+    setCurrentUser(user);
   };
 
   const handleClose = () => {
@@ -207,7 +209,7 @@ export function Content() {
         <JobsShow job={currentJob} onUpdateJob={handleUpdateJob} onDestroyJob={handleDestroyJob} />
       </Modal>
       <Modal className="user-modal" show={isUsersShowVisible} onClose={handleClose}>
-        <UsersShow onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
+        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
       </Modal>
     </div>
   );
