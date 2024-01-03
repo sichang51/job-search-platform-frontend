@@ -52,7 +52,7 @@ export function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/carted_jobs">
+                <Link className="nav-link" to="/saved-jobs">
                   Saved Jobs
                 </Link>
               </li>

@@ -3,6 +3,7 @@ import { useState } from "react";
 export function JobsIndex(props) {
   const [searchTerm, setSearchTerm] = useState("");
   console.log(props);
+
   return (
     <div id="jobs-index" className="container text-center">
       <h1>All Jobs</h1>

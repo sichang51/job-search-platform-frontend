@@ -7,6 +7,10 @@ export function JobsShow(props) {
     props.onUpdateJob(props.job.id, params, () => event.target.reset());
   };
 
+  const handleSave = () => {
+    props.onSaveJob(props.job);
+  };
+
   const handleClick = () => {
     props.onDestroyJob(props.job);
   };
@@ -35,13 +39,13 @@ export function JobsShow(props) {
         <div>
           Salary Range: <input defaultValue={props.job.job_salary_range} name="job-salary-title" type="text" />
         </div>
-        <button className="modal-SaveJob-button" type="submit">
+        <button onClick={handleSave} className="modal-SaveJob-button" type="submit">
           Save Job
         </button>
         <button className="modal-update-button" type="submit">
           Update Job
         </button>
-        <button className="modal-destroy-button" type="submit">
+        <button onClick={handleClick} className="modal-destroy-button" type="submit">
           Delete Job
         </button>
       </form>
