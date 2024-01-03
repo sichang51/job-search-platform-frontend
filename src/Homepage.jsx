@@ -60,7 +60,7 @@ export function Homepage() {
 
       {/* Second News API Section */}
       <div className="homepage-section">
-        <h1 className="text-3xl font-bold p-4 text-center">Job News</h1>
+        <h2 className="text-3xl font-bold p-4 text-center">Job News</h2>
         <ArticlesIndex articles={articles} />
       </div>
 
