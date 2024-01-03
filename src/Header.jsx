@@ -45,11 +45,7 @@ export function Header() {
                   All Jobs
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/jobs/new">
-                  New Job
-                </Link>
-              </li>
+
               <li className="nav-item">
                 <Link className="nav-link" to="/users">
                   Profile
@@ -58,6 +54,11 @@ export function Header() {
               <li className="nav-item">
                 <Link className="nav-link" to="/carted_jobs">
                   Saved Jobs
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/jobs/new">
+                  Add New Job
                 </Link>
               </li>
               {localStorage.jwt === undefined ? (
