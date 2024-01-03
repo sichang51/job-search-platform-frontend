@@ -14,9 +14,6 @@ export function Header() {
             <div className="logo-text">
               <h4>Job Hound</h4>
             </div>
-            <div>
-              <h6>Providing employment solutions for everyone </h6>
-            </div>
           </Link>
           {/* <a className="navbar-brand" href="#">
             Job Hound

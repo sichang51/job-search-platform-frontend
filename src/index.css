@@ -89,3 +89,42 @@ button:focus-visible {
     text-align: center;
     
     }
+/* Add this CSS to make the image smaller */
+  .header-image {
+    max-height: 40px; /* Adjust the value as needed */
+    width: auto; /* Maintain aspect ratio */
+}
+
+        
+    /* Additional styling for the first blank section */
+    .hp-title {
+      font-size: 2em;
+      text-align: center;
+    }
+    
+    .hp-line {
+      font-size: 1.5em;
+      text-align: center;
+    }
+    
+    .hp-co-text {
+      font-size: 1em;
+      text-align: center;
+    }
+
+    /* Additional styling for the second News API section */
+    .text-3xl {
+      margin-top: 20px;
+      border: 1px solid #ddd; 
+    }
+    
+    /* Additional styling for the third and fourth blank sections */
+    /* Add any additional styling for the blank sections */
+
+    .divider {
+      width: 100%;
+      height: 5px;
+      background-color: green; /* Color of the dividing line */
+      margin: 20px 0; /* Adjust the margin to control the space above and below the dividing line */
+    }
+    
