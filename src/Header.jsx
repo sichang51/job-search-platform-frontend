@@ -51,8 +51,13 @@ export function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/users/">
+                <Link className="nav-link" to="/users">
                   Profile
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/carted_jobs">
+                  Saved Jobs
                 </Link>
               </li>
               {localStorage.jwt === undefined ? (

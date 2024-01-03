@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { JobsIndex } from "./JobsIndex";
 import { JobsNew } from "./JobsNew";
 import { JobsShow } from "./JobsShow";
@@ -14,7 +14,8 @@ import { Signup } from "./Signup";
 import { Login } from "./Login";
 // Import the new component
 import { Homepage } from "./Homepage.jsx";
-import { Navigate } from "react-router-dom";
+import JobCard from "./JobCard";
+import SavedJobsIndex from "./SavedJobsIndex";
 
 const getAuthToken = () => {
   return axios
@@ -121,10 +122,12 @@ export function Content() {
       });
   };
 
-  const handleShowUser = (user) => {
+  const handleShowUser = (id, user) => {
     console.log("handleShowUser", user);
-    setIsUsersShowVisible(true);
-    setCurrentUser(user);
+    axios.get(`http://localhost:3000/current_user.json`).then((response) => {
+      // setIsUsersShowVisible(true);
+      setCurrentUser(response.data);
+    });
   };
 
   const handleClose = () => {
@@ -156,11 +159,13 @@ export function Content() {
       setUsers(users.filter((u) => u.id !== user.id));
     });
   };
+  // cart----------------------
 
   // session--------------------
 
   useEffect(handleIndexJobs, []);
   useEffect(handleIndexUsers, []);
+  useEffect(handleShowUser, []);
 
   return (
     <div>
@@ -193,17 +198,20 @@ export function Content() {
         <Route
           path="/users"
           element={
-            <UsersIndex
-              users={users}
-              isUsersShowVisible={isUsersShowVisible}
-              onClose={handleClose}
-              onCreateUser={handleCreateUser}
-              onShowUser={handleShowUser}
-              onUpdateUser={handleUpdateUser}
-              onDestroyUser={handleDestroyUser}
-            />
+            localStorage.jwt ? (
+              <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} />
+            ) : (
+              <Navigate to="/login" replace />
+            )
           }
         />
+
+        {/* <Route
+          path="/carted_jobs"
+          element={
+            localStorage.jwt ? <JobCard job={currentJob} onSaveJobs={handleSave} /> : <Navigate to="/login" replace />
+          }
+        /> */}
       </Routes>
       <Modal className="job-modal" show={isJobsShowVisible} onClose={handleClose}>
         <JobsShow job={currentJob} onUpdateJob={handleUpdateJob} onDestroyJob={handleDestroyJob} />

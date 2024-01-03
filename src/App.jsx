@@ -4,7 +4,6 @@ import { Header } from "./Header";
 import { BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 import React from "react";
-import { UserProvider } from "./UserContext";
 
 function App() {
   const [flashMessage, setFlashMessage] = useState("");

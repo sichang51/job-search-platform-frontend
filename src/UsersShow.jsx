@@ -8,6 +8,7 @@ export function UsersShow(props) {
   const handleClick = () => {
     props.onDestroyUser(props.user);
   };
+  console.log(props);
 
   return (
     <div className="modal-user-info">
@@ -15,6 +16,7 @@ export function UsersShow(props) {
       <p>
         First Name: {props.user.user_fname} Last Name: {props.user.user_lname}
       </p>
+      <p>Name: {props.user.user_name}</p>
       <p>Email: {props.user.user_email}</p>
       <p>Phone Number: {props.user.user_phn_num}</p>
       <p>Bio: {props.user.user_bio}</p>
@@ -24,6 +26,7 @@ export function UsersShow(props) {
       <p>Resume URL: {props.user.user_resume_url}</p>
       <p>Github URL: {props.user.user_github_url}</p>
       <p>Photo_URL: {props.user.user_photo_url}</p>
+
       <form onSubmit={handleSubmit}>
         <div className="modal-update-destroy-section">
           <div>

@@ -35,8 +35,14 @@ export function JobsShow(props) {
         <div>
           Salary Range: <input defaultValue={props.job.job_salary_range} name="job-salary-title" type="text" />
         </div>
+        <button className="modal-SaveJob-button" type="submit">
+          Save Job
+        </button>
         <button className="modal-update-button" type="submit">
           Update Job
+        </button>
+        <button className="modal-destroy-button" type="submit">
+          Delete Job
         </button>
       </form>
     </div>
