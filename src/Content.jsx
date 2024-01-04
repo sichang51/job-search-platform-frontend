@@ -122,49 +122,11 @@ export function Content() {
       });
   };
 
-  const handleShowUser = (id, user) => {
-    console.log("handleShowUser", user);
+  const handleShowUser = () => {
     axios.get(`http://localhost:3000/current_user.json`).then((response) => {
-      // setIsUsersShowVisible(true);
+      console.log(response.data, "hello");
       setCurrentUser(response.data);
-
-      // Fetch saved jobs and update savedJobs state
-      axios.get(`http://localhost:3000/carted_jobs.json`).then((jobsResponse) => {
-        const updatedSavedJobs = jobsResponse.data.map((cartedJob) => {
-          const { id, company_id, job_id } = cartedJob;
-
-          // Assuming you have endpoints like /companies/:id and /jobs/:id to fetch company and job details
-          const companyResponse = axios.get(`http://localhost:3000/companies/${company_id}.json`);
-          const jobResponse = axios.get(`http://localhost:3000/jobs/${job_id}.json`);
-
-          // Wait for both company and job details to be fetched
-          return Promise.all([companyResponse, jobResponse]).then(([company, job]) => ({
-            id,
-            company: {
-              id: company.data.id,
-              co_name: company.data.co_name,
-              co_location: company.data.co_location,
-              // Add other company properties you need
-            },
-            job: {
-              id: job.data.id,
-              job_title: job.data.job_title,
-              job_description: job.data.job_description,
-              job_url: job.data.job_url,
-              job_type: job.data.job_type,
-              job_yrs_exp: job.data.job_yrs_exp,
-              job_location: job.data.job_location,
-              job_salary_range: job.data.job_salary_range,
-              // Add other job properties you need
-            },
-          }));
-        });
-
-        Promise.all(updatedSavedJobs).then((resolvedJobs) => {
-          setSavedJobs(resolvedJobs);
-          localStorage.setItem("savedJobs", JSON.stringify(resolvedJobs));
-        });
-      });
+      setSavedJobs(response.data.carted_jobs);
     });
   };
   const handleClose = () => {

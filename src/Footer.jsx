@@ -25,8 +25,9 @@ export function Footer() {
                   <a href="#!">Employers Account</a>
                 </li>
               </ul>
+            </div>
 
-              <div className="col-md-3 mb-md-0 mb-3"></div>
+            <div className="col-md-3 mb-md-0 mb-3">
               <ul className="list-unstyled">
                 <li>
                   <a href="#!">Help / Contact Us</a>
