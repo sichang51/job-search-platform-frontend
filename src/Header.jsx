@@ -15,9 +15,6 @@ export function Header() {
               <h4>Job Hound</h4>
             </div>
           </Link>
-          {/* <a className="navbar-brand" href="#">
-            Job Hound
-          </a> */}
 
           <button
             className="navbar-toggler"

@@ -33,3 +33,7 @@
   font-size: 0.5em;
   margin-bottom: 5px;
 }
+
+.article {
+  cursor: pointer;
+}
