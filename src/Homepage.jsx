@@ -34,6 +34,12 @@ import "./index.css"; // Import the CSS file for styling
 export function Homepage() {
   const [articles, setArticles] = useState([]);
 
+  // Define the handleArticleClick function
+  const handleArticleClick = (article) => {
+    // Perform actions when article is clicked
+    window.open(article.url, "_blank"); // Open the article link in a new tab
+  };
+
   const handleArticlesIndex = () => {
     axios
       .get(`https://newsapi.org/v2/everything?q=jobs&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`)
@@ -61,7 +67,7 @@ export function Homepage() {
       {/* Second News API Section */}
       <div className="homepage-section">
         <h2 className="text-3xl font-bold p-4 text-center">Job News</h2>
-        <ArticlesIndex articles={articles} />
+        <ArticlesIndex articles={articles} onArticleClick={handleArticleClick} />
       </div>
 
       {/* Third Blank Section */}
