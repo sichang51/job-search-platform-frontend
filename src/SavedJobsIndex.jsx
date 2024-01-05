@@ -9,6 +9,11 @@ export function SavedJobsIndex(props) {
   const [currentSavedJob, setCurrentSavedJob] = useState({});
   const [isSaveJobsShowVisible, setIsSaveJobsShowVisible] = useState(false);
 
+  const handleRemoveSavedJob = (jobId) => {
+    // Remove the saved job from the list
+    setSavedJobs(savedJobs.filter((job) => job.id !== jobId));
+  };
+
   const handleShowJob = (job) => {
     console.log("handleShowJob", job);
     setIsSaveJobsShowVisible(true);
@@ -36,7 +41,9 @@ export function SavedJobsIndex(props) {
       </datalist>
       <div className="row">
         {props.savedJobs
-          .filter((job) => job.job.job_title.toLowerCase().includes(searchTerm.toLowerCase()))
+          .filter(
+            (job) => job.job && job.job.job_title && job.job.job_title.toLowerCase().includes(searchTerm.toLowerCase())
+          )
           .map((job) => (
             <div key={job.id} className="jobs col-lg-4 col-md-6 col-12 my-3">
               <div className="company-logo">
@@ -51,7 +58,7 @@ export function SavedJobsIndex(props) {
           ))}
       </div>
       <Modal className="saved-job-modal" show={isSaveJobsShowVisible} onClose={handleClose}>
-        <SavedJobsShow job={currentSavedJob} />
+        <SavedJobsShow job={currentSavedJob} onUpdate={props.onUpdateJob} onRemove={props.onRemove} />
       </Modal>
     </div>
   );

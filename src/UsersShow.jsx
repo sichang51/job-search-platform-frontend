@@ -34,10 +34,6 @@ export function UsersShow(props) {
       <p>Resume URL: {props.user.user_resume_url}</p>
       <p>Github URL: {props.user.user_github_url}</p>
 
-      <button className="update-profile-button" onClick={() => props.onShowUser(props.user)}>
-        Update Profile
-      </button>
-
       <form onSubmit={handleSubmit}>
         <div className="modal-update-section">
           <div>

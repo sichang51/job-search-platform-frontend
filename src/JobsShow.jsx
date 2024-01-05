@@ -12,7 +12,7 @@ export function JobsShow(props) {
   };
 
   const handleClick = () => {
-    props.onDestroyJob(props.job);
+    props.onRemove(props.job.id);
   };
 
   return (
@@ -46,8 +46,8 @@ export function JobsShow(props) {
           <button className="modal-update-button" type="submit">
             Update Job
           </button>
-          <button onClick={handleClick} className="modal-destroy-button" type="submit">
-            Delete Job
+          <button onClick={handleClick} className="modal-remove-button" type="button">
+            Remove Job
           </button>
         </div>
       </form>

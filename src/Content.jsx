@@ -135,6 +135,7 @@ export function Content() {
       setIsUsersShowVisible(true);
     });
   };
+
   const handleClose = () => {
     console.log("handleClose");
     setIsUsersShowVisible(false);
