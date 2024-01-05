@@ -174,14 +174,28 @@ button:focus-visible {
     .small-card {
       flex: 0 0 calc(15% - 20px); /* Adjust the width of each card and gap */
       max-width: calc(25% - 20px); /* Adjust the max-width of each card and gap */
+      max-height: 600px;
       box-sizing: border-box;
     }
 
+    .card .card-title {
+      font-size: 1.0em; /* Adjust the value as needed */
+      font-weight: bold; /* You can adjust the font weight if necessary */
+    }
+
+    /* Your global stylesheet or a new stylesheet */
+    .card .card-text {
+      max-height: 150px; /* Adjust the value as needed */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: break-word;
+    }
+    
     .card .btn-secondary {
       padding: 0.7em 0.8em; /* Adjust padding to make the button smaller */
       font-size: 0.9em; /* Adjust font size to make the button smaller */
     }
-    
+
     /* Optional: Center the "Read More" button horizontally */
     .card .btn-secondary {
       margin: 0 auto;

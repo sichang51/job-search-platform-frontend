@@ -97,6 +97,7 @@ export function Homepage() {
       <div className="homepage-section mb-4">
         <h2 className="text-3xl font-bold p-4 text-center">
           <b className="job-news-title">Job News</b>
+          <p>Source of job news across the nation</p>
         </h2>
         <div className="card-container d-flex justify-content-center">
           {articles.map((article) => (
