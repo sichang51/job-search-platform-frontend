@@ -14,6 +14,9 @@ export function UsersShow(props) {
     <div className="modal-user-info">
       <h2>User Information</h2>
       <p>
+        Photo: <img src={props.user.user_photo_url} alt="User Photo" style={{ Width: "150px", height: "125px" }} />
+      </p>
+      <p>
         First Name: {props.user.user_fname} Last Name: {props.user.user_lname}
       </p>
       <p>Name: {props.user.user_name}</p>
@@ -25,7 +28,6 @@ export function UsersShow(props) {
       <p>Website URL: {props.user.user_website_url}</p>
       <p>Resume URL: {props.user.user_resume_url}</p>
       <p>Github URL: {props.user.user_github_url}</p>
-      <p>Photo_URL: {props.user.user_photo_url}</p>
 
       <form onSubmit={handleSubmit}>
         <div className="modal-update-destroy-section">
