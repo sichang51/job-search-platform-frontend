@@ -63,14 +63,15 @@ export function UsersShow(props) {
             Photo URL: <input defaultValue={props.user.user_photo_url} name="photo url" type="string" />
           </div>
         </div>
-        <button className="modal-update-button" type="submit">
-          Update User
-        </button>
+        <div className="modal-button-container">
+          <button className="modal-update-button" type="submit">
+            Update User
+          </button>
+          <button className="modal-destroy-button" onClick={handleClick}>
+            Destroy User
+          </button>
+        </div>
       </form>
-
-      <button className="modal-destroy-button" onClick={handleClick}>
-        Destroy User
-      </button>
     </div>
   );
 }
