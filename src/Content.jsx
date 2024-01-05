@@ -15,6 +15,7 @@ import { Login } from "./Login";
 // Import the new component
 import { Homepage } from "./Homepage.jsx";
 import { SavedJobsIndex } from "./SavedJobsIndex";
+import { SavedJobsShow } from "./SavedJobsShow";
 
 const getAuthToken = () => {
   return axios
@@ -27,6 +28,7 @@ const getAuthToken = () => {
 };
 
 export function Content() {
+  // Jobs -----------------------------------------
   const [jobs, setJobs] = useState([]);
   const [isJobsShowVisible, setIsJobsShowVisible] = useState(false);
   const [currentJob, setCurrentJob] = useState({});
@@ -34,7 +36,10 @@ export function Content() {
   const [users, setUsers] = useState([]);
   const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  // SavedJobs------------------------------------------
   const [savedJobs, setSavedJobs] = useState([]);
+  const [isSaveJobsShowVisible, setIsSaveJobsShowVisible] = useState(false);
+  const [currentSavedJob, setCurrentSavedJob] = useState([]);
 
   // Jobs Functions----------------------------------
 
@@ -195,8 +200,10 @@ export function Content() {
   return (
     <div>
       <Routes>
+        <Route path="/" element={<Homepage />} />
         <Route path="/home" element={<JobsNew onCreateJob={handleCreateJob} />} />
         <Route path="/signup" element={<Signup />} />
+        {/* <Route path="/signup" element={<UsersNew onCreateUser={handleCreateUser} />} /> */}
         <Route path="/login" element={<Login />} />
         <Route
           path="/jobs/new"
@@ -205,8 +212,8 @@ export function Content() {
 
         {/* <Route path="/jobs/new" element={<JobsNew onCreateJob={handleCreateJob} />} /> */}
         {/* used for the homepage below */}
-        <Route path="/" element={<Homepage />} />
         {/* <Route path="/" element={<JobsIndex myJobs={jobs} onShowJob={handleShowJob} />} /> */}
+
         <Route
           path="/jobs"
           element={
@@ -218,7 +225,6 @@ export function Content() {
             />
           }
         />
-        <Route path="/signup" element={<UsersNew onCreateUser={handleCreateUser} />} />
 
         <Route
           path="/users"
@@ -235,21 +241,24 @@ export function Content() {
           path="/saved-jobs"
           element={
             localStorage.jwt ? (
-              <SavedJobsIndex savedJobs={savedJobs} onRemove={handleRemoveSavedJob} />
+              <SavedJobsIndex savedJobs={savedJobs} onRemove={handleRemoveSavedJob} onSaveJob={handleSaveJob} />
             ) : (
               <Navigate to="/login" replace />
             )
           }
         />
       </Routes>
+
       <Modal className="job-modal" show={isJobsShowVisible} onClose={handleClose}>
         <JobsShow
           job={currentJob}
+          onShowJob={handleShowJob}
           onUpdateJob={handleUpdateJob}
           onDestroyJob={handleDestroyJob}
           onSaveJob={handleSaveJob}
         />
       </Modal>
+
       <Modal className="user-modal" show={isUsersShowVisible} onClose={handleClose}>
         <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
       </Modal>

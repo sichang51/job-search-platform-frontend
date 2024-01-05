@@ -1,5 +1,5 @@
-export function JobsShow(props) {
-  console.log(props, "jobs show page alert");
+export function SavedJobsShow(props) {
+  console.log(props, "SaveJobsShow page alert");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,16 +16,16 @@ export function JobsShow(props) {
   };
 
   return (
-    <div className="modal-user-info">
+    <div className="modal-savedjob-info">
       <h1>Job Details</h1>
       <img src={props.job.company.co_logo} alt="logo" className="company-logo" width="100" height="125" />
-      <p>Company ID: {props.job.company_id}</p>
-      <p>Company Name: {props.job.co_name}</p>
-      <p>Job Title: {props.job.job_title}</p>
-      <p>Job Description: {props.job.job_description}</p>
-      <p>Location: {props.job.job_location}</p>
-      <p>Job Type: {props.job.job_type}</p>
-      <p>Salary: {props.job.job_salary_range}</p>
+      <p>Company ID: {props.job.company.id}</p>
+      <p>Company Name: {props.job.company.co_name}</p>
+      <p>Job Title: {props.job.job.job_title}</p>
+      <p>Job Description: {props.job.job.job_description}</p>
+      <p>Location: {props.job.job.job_location}</p>
+      <p>Job Type: {props.job.job.job_type}</p>
+      <p>Salary: {props.job.job.job_salary_range}</p>
       <form onSubmit={handleSubmit}>
         <div>
           Job Title: <input defaultValue={props.job.job_title} name="job-title" type="text" />
@@ -39,9 +39,6 @@ export function JobsShow(props) {
         <div>
           Salary Range: <input defaultValue={props.job.job_salary_range} name="job-salary-title" type="text" />
         </div>
-        <button onClick={handleSave} className="modal-SaveJob-button" type="submit">
-          Save Job
-        </button>
         <div className="modal-button-container">
           <button className="modal-update-button" type="submit">
             Update Job

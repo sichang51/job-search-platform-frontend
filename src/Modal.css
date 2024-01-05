@@ -88,3 +88,8 @@
   margin-top: 10px;
 }
 
+.modal-button-container {
+  display: flex;
+  justify-content: space-between; /* Adjust this as needed */
+  margin-top: 10px; /* Adjust this as needed */
+}

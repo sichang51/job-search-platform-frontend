@@ -52,7 +52,7 @@ export function Header() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/jobs/new">
-                  Add New Job
+                  Post a Job
                 </Link>
               </li>
               {localStorage.jwt === undefined ? (

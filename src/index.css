@@ -93,8 +93,11 @@ button:focus-visible {
   .header-image {
     max-height: 40px; /* Adjust the value as needed */
     width: auto; /* Maintain aspect ratio */
-}
+    }
 
+    .nav-link:hover {
+      color: yellow;
+    }
         
     /* Additional styling for the first blank section */
     .hp-title {
