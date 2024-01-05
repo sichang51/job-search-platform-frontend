@@ -15,11 +15,11 @@
 
 a {
   font-weight: 500;
-  color: yellow;
+  color: white;
   text-decoration: inherit;
 }
 a:hover {
-  color: yellow;
+  color: #05d363;
 }
 
 /* body {
@@ -48,7 +48,7 @@ button {
 }
 
 button:hover {
-  border-color: yellow;
+  border-color: #05d363;
 }
 button:focus,
 button:focus-visible {
@@ -61,24 +61,24 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #05d363;
   }
   button {
-    background-color: #407c87;
+    background-color: #05d363;
   }
 }
 
 .btn-secondary {
-    background-color: #407c87;
+    background-color: #05d363;
   }
 
   .button-login {
-    background-color: #407c87;
+    background-color: #05d363;
     color: #eef1f6;
   }
   
   .button-signup {
-    background-color: #407c87;
+    background-color: #05d363;
     color: #eef1f6;
   }
   
@@ -91,12 +91,12 @@ button:focus-visible {
     }
 /* Add this CSS to make the image smaller */
   .header-image {
-    max-height: 40px; /* Adjust the value as needed */
+    max-height: 60px; /* Adjust the value as needed */
     width: auto; /* Maintain aspect ratio */
     }
 
     .nav-link:hover {
-      color: yellow;
+      color: #05d363;
     }
 
     .navbar-brand,
@@ -119,6 +119,7 @@ button:focus-visible {
     .hp-co-text {
       font-size: 1em;
       text-align: center;
+      margin-bottom: 50px;
     }
 
     /* Additional styling for the second News API section */
@@ -136,13 +137,21 @@ button:focus-visible {
       background-color: green; /* Color of the dividing line */
       margin: 20px 0; /* Adjust the margin to control the space above and below the dividing line */
     }
+
+    .homepage-section-1 {
+      background-color: #1389f1;
+      font-family: "Roboto", sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      color: white;
+    }
     
     .page-footer ul.list-unstyled a {
       color: #eef1f6;
     }
 
     .page-footer {
-      background-color: #407c87;
+      background-color: #001d38;
     }
 
     .page-footer .footer-logo-name {
@@ -157,6 +166,33 @@ button:focus-visible {
     }
 
     .page-footer .footer-logo {
-      max-height: 60px; /* Adjust the value as needed */
+      max-height: 80px; /* Adjust the value as needed */
       width: auto; /* Maintain aspect ratio */
+      filter: brightness(0) invert(1);
+    }
+
+    .big-blue-header {
+      background-color: #1389f1;
+      color: white;
+      padding: 50px;
+    }
+
+
+    .workers-image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .upload-resume-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 100px;
+      margin-bottom: 50px;
+  
+    }
+    .upload-resume-button {
+      background-color: #05d363;
+      color: white;
     }

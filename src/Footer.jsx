@@ -8,10 +8,13 @@ export function Footer() {
           <div className="row">
             <div className="col-md-6 mt-md-0 mt-3">
               <h5 className="footer-logo-name">Job Hound</h5>
-              <img
-                className="footer-logo"
-                src="https://static.vecteezy.com/system/resources/thumbnails/010/789/780/small/camping-illustration-isolated-on-transparent-background-png.png"
-              />
+              <div className="white-image-container">
+                <img
+                  src="https://static.vecteezy.com/system/resources/thumbnails/010/789/780/small/camping-illustration-isolated-on-transparent-background-png.png"
+                  alt=""
+                  className="footer-logo white-image"
+                />
+              </div>
             </div>
 
             <hr className="clearfix w-100 d-md-none pb-0" />

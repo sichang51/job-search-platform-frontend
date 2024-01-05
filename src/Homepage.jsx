@@ -53,25 +53,51 @@ export function Homepage() {
 
   return (
     <main>
-      {/* First Blank Section */}
-      <div className="homepage-section mb-4">
-        <h2 className="hp-title">Job Hound</h2>
-        <h6 className="hp-line">Providing employment solutions for everyone.</h6>
-        <p className="hp-co-text">
-          Wherever you are on your career journey, Job Hound makes it easier for workers and companies to find the
-          perfect match.
-        </p>
-        <div className="divider"></div>
+      {/* Big Blue Header Section */}
+      <div className="big-blue-header">
+        {/* <h5>4536+ Jobs listed</h5>
+        <h3>Find your Dream Job</h3>
+        <p>We provide online instant cash loans with quick approval that suit your term length</p> */}
+        <div className="slider_btn"></div>
       </div>
 
-      {/* Second News API Section */}
-      <div className="homepage-section">
+      {/* Header Component */}
+      {/* First Blank Section */}
+      <div className="homepage-section-1 mb-4 pt-4 pb-4">
+        <h2 className="hp-title">{/* <b>Job Hound</b> */}</h2>
+        <h6 className="hp-line">
+          <b>Providing employment solutions for everyone.</b>
+        </h6>
+        <p className="hp-co-text">
+          <b>
+            Wherever you are on your career journey, Job Hound makes it easier for workers and companies to find the
+            perfect match.
+          </b>
+        </p>
+        <div className="workers-image-container">
+          <img
+            src="https://www.pngplay.com/wp-content/uploads/6/Employment-Background-PNG-Image.png"
+            alt=""
+            className="workers-image"
+          />
+        </div>
+        <div className="upload-resume-container">
+          <button className="upload-resume-button">
+            <a href="#" className="boxed-btn3">
+              <b>Upload your Resume</b>
+            </a>
+          </button>
+        </div>
+      </div>
+
+      {/* Second Blank Section */}
+      <div className="homepage-section-2">{/* Add any content or leave it empty */}</div>
+
+      {/* Third News API Section */}
+      <div className="homepage-section mb-4">
         <h2 className="text-3xl font-bold p-4 text-center">Job News</h2>
         <ArticlesIndex articles={articles} onArticleClick={handleArticleClick} />
       </div>
-
-      {/* Third Blank Section */}
-      <div className="homepage-section mb-4">{/* Add any content or leave it empty */}</div>
 
       {/* Fourth Blank Section */}
       <div className="homepage-section mb-4">{/* Add any content or leave it empty */}</div>
