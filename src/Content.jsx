@@ -132,6 +132,7 @@ export function Content() {
       console.log(response.data, "hello");
       setCurrentUser(response.data);
       setSavedJobs(response.data.carted_jobs);
+      setIsUsersShowVisible(true);
     });
   };
   const handleClose = () => {
@@ -237,7 +238,12 @@ export function Content() {
           path="/users"
           element={
             localStorage.jwt ? (
-              <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
+              <UsersIndex
+                user={currentUser}
+                onShowUser={handleShowUser}
+                onUpdateUser={handleUpdateUser}
+                onDestroyUser={handleDestroyUser}
+              />
             ) : (
               <Navigate to="/login" replace />
             )
@@ -267,7 +273,12 @@ export function Content() {
       </Modal>
 
       <Modal className="user-modal" show={isUsersShowVisible} onClose={handleClose}>
-        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
+        <UsersShow
+          user={currentUser}
+          onShowUser={handleShowUser}
+          onUpdateUser={handleUpdateUser}
+          onDestroyUser={handleDestroyUser}
+        />
       </Modal>
     </div>
   );

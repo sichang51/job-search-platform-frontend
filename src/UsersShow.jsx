@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export function UsersShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -12,10 +14,15 @@ export function UsersShow(props) {
   console.log(props);
 
   return (
-    <div className="modal-user-info">
-      <h2>User Information</h2>
+    <div className="user-profile">
+      <h2>Your Profile</h2>
       <p>
-        Photo: <img src={props.user.user_photo_url} alt="User Photo" style={{ Width: "150px", height: "125px" }} />
+        Photo:{" "}
+        <img
+          src={props.user.user_photo_url}
+          alt="User Photo"
+          style={{ width: "150px", height: "150px", borderRadius: "50%", objectFit: "cover" }}
+        />
       </p>
       <p>Name: {props.user.user_name}</p>
       <p>Email: {props.user.user_email}</p>
@@ -27,8 +34,12 @@ export function UsersShow(props) {
       <p>Resume URL: {props.user.user_resume_url}</p>
       <p>Github URL: {props.user.user_github_url}</p>
 
+      <button className="update-profile-button" onClick={() => props.onShowUser(props.user)}>
+        Update Profile
+      </button>
+
       <form onSubmit={handleSubmit}>
-        <div className="modal-update-destroy-section">
+        <div className="modal-update-section">
           <div>
             Name: <input defaultValue={props.user.user_name} name="name" type="string" />
           </div>
