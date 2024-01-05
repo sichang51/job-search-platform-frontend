@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
 
@@ -42,7 +42,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -70,7 +70,21 @@ button:focus-visible {
 
 .btn-secondary {
     background-color: #05d363;
-  }
+    border: solid;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #05d363;
+    border-color: #05d363;
+    }
+.more-info-text:hover {
+  color: #05d363;
+  border-color: #05d363;
+}    
 
   .button-login {
     background-color: #05d363;
@@ -97,6 +111,8 @@ button:focus-visible {
 
     .nav-link:hover {
       color: #05d363;
+      background-color: #1389f1;
+      
     }
 
     .navbar-brand,
@@ -123,20 +139,14 @@ button:focus-visible {
     }
 
     /* Additional styling for the second News API section */
-    .text-3xl {
+    /* .text-3xl {
       margin-top: 20px;
       border: 1px solid #ddd; 
-    }
+    } */
     
     /* Additional styling for the third and fourth blank sections */
     /* Add any additional styling for the blank sections */
 
-    .divider {
-      width: 100%;
-      height: 5px;
-      background-color: green; /* Color of the dividing line */
-      margin: 20px 0; /* Adjust the margin to control the space above and below the dividing line */
-    }
 
     .homepage-section-1 {
       background-color: #1389f1;
@@ -145,7 +155,38 @@ button:focus-visible {
       font-style: normal;
       color: white;
     }
+
+    .more-info-button-container {
+      border-color: #05d363;
+    }
+
+    .job-news-title {
+      font-weight: bold;
+      color: #1389f1;
+    }
+/* Add this CSS to your existing styles */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px; /* Adjust the gap between cards as needed */
+    }
+
+    .small-card {
+      flex: 0 0 calc(15% - 20px); /* Adjust the width of each card and gap */
+      max-width: calc(25% - 20px); /* Adjust the max-width of each card and gap */
+      box-sizing: border-box;
+    }
+
+    .card .btn-secondary {
+      padding: 0.7em 0.8em; /* Adjust padding to make the button smaller */
+      font-size: 0.9em; /* Adjust font size to make the button smaller */
+    }
     
+    /* Optional: Center the "Read More" button horizontally */
+    .card .btn-secondary {
+      margin: 0 auto;
+    }
+
     .page-footer ul.list-unstyled a {
       color: #eef1f6;
     }
@@ -190,9 +231,17 @@ button:focus-visible {
       justify-content: center;
       margin-top: 100px;
       margin-bottom: 50px;
-  
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;  
     }
+
     .upload-resume-button {
       background-color: #05d363;
       color: white;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .upload-resume-button:hover {
+      background-color: #1389f1;
+      color: #05d363;
     }

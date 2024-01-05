@@ -44,7 +44,7 @@ export function Homepage() {
     axios
       .get(`https://newsapi.org/v2/everything?q=jobs&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`)
       .then((response) => {
-        const limitedArticles = response.data.articles.slice(0, 10);
+        const limitedArticles = response.data.articles.slice(0, 12);
         setArticles(limitedArticles);
       });
   };
@@ -95,8 +95,23 @@ export function Homepage() {
 
       {/* Third News API Section */}
       <div className="homepage-section mb-4">
-        <h2 className="text-3xl font-bold p-4 text-center">Job News</h2>
-        <ArticlesIndex articles={articles} onArticleClick={handleArticleClick} />
+        <h2 className="text-3xl font-bold p-4 text-center">
+          <b className="job-news-title">Job News</b>
+        </h2>
+        <div className="card-container d-flex justify-content-center">
+          {articles.map((article) => (
+            <div key={article.title} className="card small-card">
+              <img src={article.urlToImage} alt={article.title} className="card-img-top" />
+              <div className="card-body d-flex flex-column justify-content-between">
+                <h5 className="card-title">{article.title}</h5>
+                <p className="card-text">{article.description}</p>
+                <button onClick={() => handleArticleClick(article)} className="btn btn-secondary">
+                  <b>Read More</b>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Fourth Blank Section */}

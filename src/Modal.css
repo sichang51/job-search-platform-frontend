@@ -31,36 +31,54 @@
   top: 0.5em;
   right: 0.5em;
   font-size: 2em;
-  background: #407c87;
+  background: #05d363;
   border: none;
-  width: 3rem;
-  height: 3rem;
+  width: 1rem;
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #eef1f6;
+}
+
+.modal-main button.close:hover {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 2em;
+  background: white;
+  border: solid;
+  width: 1rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #05d363;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;  
 }
 
 
 .modal-SaveJob-button {
-  background: green;
+  background: #05d363;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #eef1f6;
+  color: white;
   margin-top: 10px;
+}
+
+.modal-SaveJob-button:hover {
+  background: white;
+  border: solid;
+  color: #05d363;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;  
 }
 
 .modal-update-button {
-  /* position: absolute; */
-  /* top: 0.5em;
-  right: 0.5em;
-  font-size: 2em; */
   background: #407c87;
   border: none;
-  /* width: 3rem;
-  height: 3rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,19 +86,34 @@
   margin-top: 10px;
 }
 
+.modal-update-button:hover {
+  background: white;
+  border: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #407c87;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;  
+}
+
 .modal-destroy-button {
-  /* position: absolute; */
-  /* top: 0.5em;
-  right: 0.5em;
-  font-size: 2em; */
   background: #d1114d;
   border: none;
-  /* width: 3rem;
-  height: 3rem; */
   display: flex;
   margin-left: auto;
   color: #eef1f6;
   margin-top: 10px;
+}
+
+.modal-destroy-button:hover {
+  background: white;
+  border: solid;
+  display: flex;
+  margin-left: auto;
+  color: #d1114d;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;  
 }
 
 .modal-update-destroy-section {
