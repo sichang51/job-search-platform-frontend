@@ -2,7 +2,8 @@ export function UsersShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onUpdateUser(props.user.id, params, () => event.target.reset());
+    props.onUpdateUser(props.user.id, params);
+    event.target.reset();
   };
 
   const handleClick = () => {
@@ -15,9 +16,6 @@ export function UsersShow(props) {
       <h2>User Information</h2>
       <p>
         Photo: <img src={props.user.user_photo_url} alt="User Photo" style={{ Width: "150px", height: "125px" }} />
-      </p>
-      <p>
-        First Name: {props.user.user_fname} Last Name: {props.user.user_lname}
       </p>
       <p>Name: {props.user.user_name}</p>
       <p>Email: {props.user.user_email}</p>
@@ -32,8 +30,7 @@ export function UsersShow(props) {
       <form onSubmit={handleSubmit}>
         <div className="modal-update-destroy-section">
           <div>
-            First Name: <input defaultValue={props.user.user_fname} name="name" type="string" />
-            Last Name: <input defaultValue={props.user.user_lname} name="name" type="string" />
+            Name: <input defaultValue={props.user.user_name} name="name" type="string" />
           </div>
           <div>
             Email: <input defaultValue={props.user.user_email} name="email" type="string" />

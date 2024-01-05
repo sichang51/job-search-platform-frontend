@@ -98,6 +98,12 @@ button:focus-visible {
     .nav-link:hover {
       color: yellow;
     }
+
+    .navbar-brand,
+    .navbar-nav,
+    .nav-link { 
+      font-family: "Roboto", sans-serif;
+    }
         
     /* Additional styling for the first blank section */
     .hp-title {

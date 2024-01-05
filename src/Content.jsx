@@ -140,27 +140,34 @@ export function Content() {
     setIsJobsShowVisible(false);
   };
 
-  const handleUpdateUser = (id, params, successCallback) => {
+  const handleUpdateUser = (id, params) => {
     console.log("handleUpdateUser", params);
-    axios.patch(`http://localhost:3000/users/${id}.json`, params).then((response) => {
-      setUsers(
-        users.map((user) => {
-          if (user.id === response.data.id) {
-            return response.data;
-          } else {
-            return user;
-          }
-        })
-      );
-      successCallback();
-      handleClose();
-    });
+    axios
+      .patch(`http://localhost:3000/users/${id}.json`, params)
+      .then((response) => {
+        console.log("User updated successfully:", response.data);
+        setCurrentUser(response.data);
+        setUsers(
+          users.map((user) => {
+            if (user.id === response.data.id) {
+              return response.data;
+            } else {
+              return user;
+            }
+          })
+        );
+        handleClose();
+      })
+      .catch((error) => {
+        console.error("Error updating user:", error);
+      });
   };
 
   const handleDestroyUser = (user) => {
-    console.log("handleDestroyUser", user);
     axios.delete(`http://localhost:3000/users/${user.id}.json`).then((response) => {
-      setUsers(users.filter((u) => u.id !== user.id));
+      console.log(response.data);
+      setUsers(users.filter((r) => r.id !== user.id));
+      handleClose();
     });
   };
   // cart----------------------
@@ -230,7 +237,7 @@ export function Content() {
           path="/users"
           element={
             localStorage.jwt ? (
-              <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} />
+              <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
             ) : (
               <Navigate to="/login" replace />
             )

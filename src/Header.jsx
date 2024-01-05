@@ -8,11 +8,13 @@ export function Header() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#407c87" }} data-bs-theme="dark">
-        <div className="container-fluid">
-          <Link to="/" className="navbar-brand logo-container">
-            <img src={headerImageUrl} alt="Header" className="header-image" />
-            <div className="logo-text">
-              <h4>Job Hound</h4>
+        <div className="container-fluid d-flex justify-content-between align-items-center">
+          <Link to="/" className="navbar-brand logo-container d-flex align-items-center">
+            <div className="d-flex align-items-center">
+              <img src={headerImageUrl} alt="Header" className="header-image me-3" />
+              <div className="logo-text">
+                <h4>Job Hound</h4>
+              </div>
             </div>
           </Link>
 
