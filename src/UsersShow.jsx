@@ -17,7 +17,7 @@ export function UsersShow(props) {
     <div className="user-profile">
       <h2>Your Profile</h2>
       <p>
-        Photo:{" "}
+        {" "}
         <img
           src={props.user.user_photo_url}
           alt="User Photo"
@@ -72,7 +72,7 @@ export function UsersShow(props) {
             Update User
           </button>
           <button className="modal-destroy-button" onClick={handleClick}>
-            Destroy User
+            Delete User
           </button>
         </div>
       </form>

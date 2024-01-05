@@ -132,7 +132,7 @@ export function Content() {
       console.log(response.data, "hello");
       setCurrentUser(response.data);
       setSavedJobs(response.data.carted_jobs);
-      setIsUsersShowVisible(true);
+      setIsUsersShowVisible(false);
     });
   };
 
