@@ -1,16 +1,6 @@
 export function SavedJobsShow(props) {
   console.log(props, "SaveJobsShow page alert");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const params = new FormData(event.target);
-    props.onUpdateJob(props.job.id, params, () => event.target.reset());
-  };
-
-  const handleSave = () => {
-    props.onSaveJob(props.job);
-  };
-
   const handleClick = () => {
     props.onRemove(props.job.id);
   };
@@ -26,28 +16,10 @@ export function SavedJobsShow(props) {
       <p>Location: {props.job.job.job_location}</p>
       <p>Job Type: {props.job.job.job_type}</p>
       <p>Salary: {props.job.job.job_salary_range}</p>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Job Title: <input defaultValue={props.job.job_title} name="job-title" type="text" />
-        </div>
-        <div>
-          Location: <input defaultValue={props.job.job_location} name="job-location" type="text" />
-        </div>
-        <div>
-          Job Title: <input defaultValue={props.job.job_type} name="job-title" type="text" />
-        </div>
-        <div>
-          Salary Range: <input defaultValue={props.job.job_salary_range} name="job-salary-title" type="text" />
-        </div>
-        <div className="modal-button-container">
-          <button className="modal-update-button" type="submit">
-            Update Job
-          </button>
-          <button onClick={handleClick} className="modal-remove-button" type="submit">
-            Remove Job
-          </button>
-        </div>
-      </form>
+
+      <button onClick={handleClick} className="modal-remove-button" type="submit">
+        Remove Job
+      </button>
     </div>
   );
 }

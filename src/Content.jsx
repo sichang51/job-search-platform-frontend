@@ -196,10 +196,6 @@ export function Content() {
       });
   };
 
-  const handleRemoveSavedJob = (jobId) => {
-    setSavedJobs(savedJobs.filter((job) => job.id !== jobId));
-  };
-
   // session--------------------
 
   useEffect(handleIndexJobs, []);
@@ -255,7 +251,7 @@ export function Content() {
           path="/saved-jobs"
           element={
             localStorage.jwt ? (
-              <SavedJobsIndex savedJobs={savedJobs} onRemove={handleRemoveSavedJob} onSaveJob={handleSaveJob} />
+              <SavedJobsIndex savedJobs={savedJobs} onSaveJob={handleSaveJob} onUpdateJob={handleUpdateJob} />
             ) : (
               <Navigate to="/login" replace />
             )

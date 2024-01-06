@@ -1,5 +1,6 @@
 import { SavedJobsShow } from "./SavedJobsShow";
 import { Modal } from "./Modal";
+import axios from "axios";
 
 import { useState } from "react";
 
@@ -11,7 +12,12 @@ export function SavedJobsIndex(props) {
 
   const handleRemoveSavedJob = (jobId) => {
     // Remove the saved job from the list
-    setSavedJobs(savedJobs.filter((job) => job.id !== jobId));
+    axios.delete(`http://localhost:3000/carted_jobs/${jobId}.json`).then((response) => {
+      // setSavedJobs(savedJobs.filter((job) => job.id !== jobId));
+      setIsSaveJobsShowVisible(false);
+      console.log(response.data);
+      location.reload();
+    });
   };
 
   const handleShowJob = (job) => {
@@ -58,7 +64,7 @@ export function SavedJobsIndex(props) {
           ))}
       </div>
       <Modal className="saved-job-modal" show={isSaveJobsShowVisible} onClose={handleClose}>
-        <SavedJobsShow job={currentSavedJob} onUpdate={props.onUpdateJob} onRemove={props.onRemove} />
+        <SavedJobsShow job={currentSavedJob} onUpdateJob={props.onUpdateJob} onRemove={handleRemoveSavedJob} />
       </Modal>
     </div>
   );
