@@ -272,4 +272,27 @@ button:focus-visible {
       color: #05d363;
     }
 
+    .saved-job-modal-remove-button {
+      background: #d1114d;
+      border: none;
+      display: flex;
+      color: #eef1f6;
+      margin-top: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .saved-job-modal-remove-button:hover {
+      background: white;
+      border: solid;
+      display: flex;
+      color: #d1114d;
+      margin-top: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;  
+    }
+
+    .saved-job-modal-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 

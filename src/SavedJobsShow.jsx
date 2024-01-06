@@ -16,10 +16,11 @@ export function SavedJobsShow(props) {
       <p>Location: {props.job.job.job_location}</p>
       <p>Job Type: {props.job.job.job_type}</p>
       <p>Salary: {props.job.job.job_salary_range}</p>
-
-      <button onClick={handleClick} className="modal-remove-button" type="submit">
-        Remove Job
-      </button>
+      <div className="saved-job-modal-container">
+        <button onClick={handleClick} className="saved-job-modal-remove-button" type="submit">
+          Remove Job
+        </button>
+      </div>
     </div>
   );
 }
