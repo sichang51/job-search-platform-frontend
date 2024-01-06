@@ -1,11 +1,22 @@
 import { useState } from "react";
+import { Modal } from "./Modal";
+import { UsersShow } from "./UsersShow";
 
 export function UsersIndex(props) {
+  // State to manage modal visibility and current user
+  const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
     props.onUpdateUser(props.user.id, params);
     event.target.reset();
+  };
+
+  const handleShowUser = (user) => {
+    setIsUsersShowVisible(true);
+    setCurrentUser(props.user);
   };
 
   const handleClick = () => {
@@ -34,9 +45,14 @@ export function UsersIndex(props) {
       <p>Resume URL: {props.user.user_resume_url}</p>
       <p>Github URL: {props.user.user_github_url}</p>
 
-      <button className="update-profile-button" onClick={() => props.onShowUser(props.user)}>
+      <button className="update-profile-button" onClick={handleShowUser}>
         Update Profile
       </button>
+      {/* Modal for updating user information */}
+      <Modal className="user-modal" show={isUsersShowVisible} onClose={() => setIsUsersShowVisible(false)}>
+        {/* Pass the current user to UsersShow component */}
+        <UsersShow user={currentUser} onUpdateUser={props.onUpdateUser} onDestroyUser={props.onDestroyUser} />
+      </Modal>
 
       {/* <form onSubmit={handleSubmit}>
         <div className="modal-update-section">
