@@ -25,7 +25,7 @@ export function UsersIndex(props) {
   console.log(props);
 
   return (
-    <div className="user-profile">
+    <div className="container text-center">
       <h2>Your Profile</h2>
       <p>
         Photo:{" "}
