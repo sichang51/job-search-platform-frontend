@@ -502,3 +502,58 @@ button:focus-visible {
       background-color: white;
       color: #05d363;
     }
+
+    .contactus-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 60px;
+    }
+
+    .contactus-image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-us-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 600px;
+      height: 400px;
+    }
+
+    .contactus-logo-img-title-container {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+    }
+
+    .contactus-logo-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: 150px;
+    }
+
+    .contactus-logo-title {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+      margin-top: 150px;
+      margin-left: -125px;
+    }
+
+    .contact-info-section {
+      display: flex;
+      align-items: right;
+      justify-content: right;
+    }
+
+    .copyright {
+      display: flex;
+      margin-left: 50px;
+    }
