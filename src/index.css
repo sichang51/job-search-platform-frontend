@@ -13,6 +13,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Add this CSS to your existing styles */
+.animated-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease; /* Adjust the duration (1s) as needed */
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 a {
   font-weight: 500;
   color: white;
@@ -67,6 +81,19 @@ button:focus-visible {
     background-color: #05d363;
   }
 }
+
+/* Add this CSS to your existing styles */
+.animated-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .btn-secondary {
     background-color: #05d363;
@@ -271,6 +298,160 @@ button:focus-visible {
       background-color: white;
       color: #05d363;
     }
+
+    .hp-second-content-container {
+      position: relative; /* Make the container a positioning context */
+      display: flex;
+      align-items: center;
+      /* max-width: 600px; Adjust the max-width based on your design */
+      /* width: 100%; Ensure it takes the full width of the parent container */
+      /* margin-left: 150px;
+      margin-bottom: 200px;
+      margin-top: 50px; */
+    }
+
+    .hp-second-section-text {
+      color: #05d363;
+      display: flex;
+      justify-content: center;
+      word-wrap: break-word;
+      max-width: 500px;
+      text-align: center;
+      margin: 0 auto;
+      font-weight: bold;
+      margin-left: 500px;
+    }
+
+    .homepage-section-2-right {
+      /* margin-left: 200px; */
+      margin-right: 100px;
+      /* width: 250%; */
+      /* height: auto; */
+      /* margin-left: 500px; */
+    }
+
+    .second-section-img {
+      display: flex;
+      justify-content: left;
+      width: 400px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .hp-second-image-left {
+      margin-right: 20px; /* Adjust the margin as needed */
+    }
+
+
+
+    .hp-second-left-text-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hp-second-right-text-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hp-second-text-header {
+      color: #333e49;
+      font-size: 25px;
+      margin-left: 50px;
+      margin-top: 10px;
+    }
+
+    .hp-findandsave {
+      display: flex;
+      font-size: 25px;
+      color: rgb(254, 83, 10);
+      font-weight: bold;
+      justify-content: center;
+    }
+
+    .hp-evalcol {
+      display: flex;
+      font-size: 25px;
+      color: rgb(78, 78, 181);
+      font-weight: bold;
+      justify-content: center;
+      margin-top: -65px;
+    }
+
+    .hp-left-subheader {
+      display: flex;
+      font-size: 20px;
+      justify-content: center;
+      font-weight: bold;
+      word-wrap: break-word;
+      max-width: 400px;
+      margin: 0 auto;
+      color: #333e49;
+    }
+
+    .hp-right-subheader {
+      display: flex;
+      font-size: 20px;
+      justify-content: center;
+      font-weight: bold;
+      word-wrap: break-word;
+      max-width: 400px;
+      margin: 0 auto;
+      color: #333e49;
+    }
+
+    .hp-left-text {
+      display: flex;
+      font-size: 20px;
+      justify-content: center;
+      word-wrap: break-word;
+      max-width: 300px;
+      margin: 0 auto;
+      margin-top: 10px;
+      font-weight: normal;
+      color: #333e49;
+    }
+
+    .hp-right-text {
+      display: flex;
+      font-size: 20px;
+      justify-content: center;
+      word-wrap: break-word;
+      max-width: 300px;
+      margin: 0 auto;
+      margin-top: 10px;
+      color: #333e49;
+    }
+
+    /* Additional styling for the second section */
+.homepage-section-2-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Adjust the max-width based on your design */
+  margin: 0 auto;
+}
+
+
+.second-section-img-right {
+  max-width: 400px;
+  height: auto;
+  margin-top: 250px;
+}
+
+.hp-second-left-text-container {
+  display: flex;
+  justify-content: center;
+}
+
+.hp-second-text-header {
+  color: #333e49;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
 
     .saved-job-modal-remove-button {
       background: #d1114d;
