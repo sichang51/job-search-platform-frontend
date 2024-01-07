@@ -300,6 +300,15 @@ button:focus-visible {
       color: #05d363;
     }
 
+    .bio-large-textbox {
+      width: 50%;
+      height: 150px;
+      resize: vertical;
+      text-align: left;
+      overflow-y: hidden;
+    }
+    
+
     .hp-second-content-container {
       position: relative; /* Make the container a positioning context */
       display: flex;

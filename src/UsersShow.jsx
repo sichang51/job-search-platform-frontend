@@ -46,7 +46,8 @@ export function UsersShow(props) {
             Phone Number: <input defaultValue={props.user.user_phn_num} name="user_phn_num" type="string" />
           </div>
           <div>
-            Bio: <input defaultValue={props.user.user_bio} name="user_bio" type="text" />
+            Bio:{" "}
+            <textarea defaultValue={props.user.user_bio} name="user_bio" className="bio-large-textbox" type="text" />
           </div>
           <div>
             Linkedin URL: <input defaultValue={props.user.user_linkedin_url} name="user_linkedin_url" type="string" />
