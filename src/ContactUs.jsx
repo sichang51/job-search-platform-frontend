@@ -20,9 +20,7 @@ function ContactUs() {
           <b>Contact us</b>
         </h6>
         <p className="hp-co-text">
-          <b>
-            Our aim is to provide best-in-class recruitment tools, processes, and automation in one complete solution.
-          </b>
+          <b>A bit stuck? Sorry to hear that. Please contact us via email.</b>
         </p>
         <div className="contactus-image-container">
           <img
@@ -56,7 +54,7 @@ function ContactUs() {
             <div className="contact-info-section">
               <ul className="list-unstyled">
                 <li>
-                  <b>Email:</b> example@example.com
+                  <b>Email:</b> example@jobhound.com
                 </li>
                 <li>
                   <b>Phone:</b> (123) 456-7890

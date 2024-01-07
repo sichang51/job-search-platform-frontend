@@ -114,10 +114,25 @@ button:focus-visible {
   border-color: #05d363;
 }    
 
+  .login-container {
+    align-items: center;
+    justify-content: center;
+  }
+
   .button-login {
     background-color: #05d363;
     color: #eef1f6;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
+
+  .button-login:hover {
+    background-color: white;
+    color: #05d363;
+    border-color: #05d363;
+     }
 
   .signup-title {
     margin-left: 100px;
@@ -141,6 +156,23 @@ button:focus-visible {
     background-color: white;
     color: #05d363;
     border-color: #05d363;
+    }
+
+    .login-name {
+      color: #05d363;
+      font-weight: bold;
+      font-size: 50px;
+      margin-left: 10px;
+    }
+
+    .login-email-field {
+      margin-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    .login-password-field {
+      margin-left: 10px;
+
     }
   
   .logo-container {
