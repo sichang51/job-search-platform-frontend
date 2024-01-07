@@ -146,19 +146,10 @@ export function Content() {
   const handleUpdateUser = (id, params) => {
     console.log("handleUpdateUser", params);
     axios
-      .patch(`http://localhost:3000/users/${id}.json`, params)
+      .patch(`http://localhost:3000/users/${user.id}.json`, params)
       .then((response) => {
         console.log("User updated successfully:", response.data);
-        setCurrentUser(response.data);
-        setUsers(
-          users.map((user) => {
-            if (user.id === response.data.id) {
-              return response.data;
-            } else {
-              return user;
-            }
-          })
-        );
+        setUsers(users.filter((r) => r.id !== user.id));
         handleClose();
       })
       .catch((error) => {

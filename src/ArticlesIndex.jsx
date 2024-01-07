@@ -12,7 +12,7 @@ export function ArticlesIndex({ articles, onArticleClick }) {
           <p className="article-description-small">{article.description || "No description available"}</p>
         </div>
       ))}
-      {/* <h1>All Articles</h1>
+      <h1>All Articles</h1>
       {props.articles.map((article) => (
         <div key={article.title}>
           <h2>{article.title}</h2>
@@ -21,7 +21,7 @@ export function ArticlesIndex({ articles, onArticleClick }) {
           <p>Description: {article.description}</p>
           <p>Source: {article.source.name}</p>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 }
