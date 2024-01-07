@@ -16,6 +16,7 @@ import { Login } from "./Login";
 import { Homepage } from "./Homepage.jsx";
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
+import Terms from "./Terms";
 import { SavedJobsIndex } from "./SavedJobsIndex";
 import { SavedJobsShow } from "./SavedJobsShow";
 
@@ -242,6 +243,7 @@ export function Content() {
         />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
 
       <Modal className="job-modal" show={isJobsShowVisible} onClose={handleClose}>

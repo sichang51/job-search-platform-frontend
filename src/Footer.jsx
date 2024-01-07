@@ -37,7 +37,7 @@ export function Footer() {
                   <Link to="/contact-us">Contact Us</Link>
                 </li>
                 <li>
-                  <a href="#!">Terms of Use</a>
+                  <Link to="/terms">Terms of Use</Link>
                 </li>
               </ul>
             </div>
