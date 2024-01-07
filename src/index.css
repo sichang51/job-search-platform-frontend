@@ -108,6 +108,7 @@ button:focus-visible {
     color: #05d363;
     border-color: #05d363;
     }
+
 .more-info-text:hover {
   color: #05d363;
   border-color: #05d363;
@@ -117,11 +118,30 @@ button:focus-visible {
     background-color: #05d363;
     color: #eef1f6;
   }
+
+  .signup-title {
+    margin-left: 100px;
+    color: #05d363;
+  }
+
+  .user-signup-container {
+    margin-left: 100px;
+  }
   
   .button-signup {
     background-color: #05d363;
     color: #eef1f6;
+    border: solid;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
+
+  .button-signup:hover {
+    background-color: white;
+    color: #05d363;
+    border-color: #05d363;
+    }
   
   .logo-container {
     display: flex;
