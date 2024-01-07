@@ -40,29 +40,24 @@ function AboutUs() {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <h5>Job Hound</h5>
+            <h5>
+              <b>Job Hound</b>
+            </h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, velit vel mattis euismod.</p>
           </div>
-          <div className="col-md-3">
-            <h5>Links</h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#!">Home</a>
-              </li>
-              <li>
-                <a href="#!">About Us</a>
-              </li>
-              <li>
-                <a href="#!">Contact</a>
-              </li>
-            </ul>
-          </div>
+          <div className="col-md-3"></div>
           <div className="col-md-3">
             <h5>Contact</h5>
             <ul className="list-unstyled">
-              <li>Email: example@example.com</li>
-              <li>Phone: (123) 456-7890</li>
-              <li>Address: 123 Main St, City, Country</li>
+              <li>
+                <b>Email:</b> example@example.com
+              </li>
+              <li>
+                <b>Phone:</b> (123) 456-7890
+              </li>
+              <li>
+                <b>Address:</b> 123 Main St, City, Country
+              </li>
             </ul>
           </div>
         </div>
