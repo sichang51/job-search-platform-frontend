@@ -25,7 +25,16 @@
   transform: translateY(0);
 }
 
-
+@keyframes moveText {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 a {
   font-weight: 500;
@@ -209,12 +218,14 @@ button:focus-visible {
     .hp-line {
       font-size: 2.5em;
       text-align: center;
+      animation: moveText 5s ease-in-out;
     }
     
     .hp-co-text {
       font-size: 1.2em;
       text-align: center;
       margin-bottom: 50px;
+      animation: moveText 5s ease-in-out;
     }
 
     /* Additional styling for the second News API section */
@@ -242,6 +253,7 @@ button:focus-visible {
     .job-news-title {
       font-weight: bold;
       color: #1389f1;
+      animation: moveText 5s ease-in-out;
     }
 /* Add this CSS to your existing styles */
     .card-container {
@@ -316,6 +328,7 @@ button:focus-visible {
       display: flex;
       align-items: center;
       justify-content: center;
+      animation: moveText 5s ease-in-out;
     }
 
     .upload-resume-container {
@@ -377,11 +390,16 @@ button:focus-visible {
       position: relative; /* Make the container a positioning context */
       display: flex;
       align-items: center;
+      animation: moveText 5s ease-in-out;
       /* max-width: 600px; Adjust the max-width based on your design */
       /* width: 100%; Ensure it takes the full width of the parent container */
       /* margin-left: 150px;
       margin-bottom: 200px;
       margin-top: 50px; */
+    }
+
+    .hp-second-content-container.in-view{
+      animation: moveText 5s ease-in-out;
     }
 
     .hp-second-section-text {
@@ -396,6 +414,9 @@ button:focus-visible {
       margin-left: 500px;
       white-space: nowrap;
     }
+    .hp-second-section-text.in-view{
+      animation: moveText 5s ease-in-out;
+      }
 
     .homepage-section-2-right {
       /* margin-left: 200px; */
@@ -403,6 +424,7 @@ button:focus-visible {
       /* width: 250%; */
       /* height: auto; */
       /* margin-left: 500px; */
+      animation: moveText 5s ease-in-out;
     }
 
     .second-section-img {
@@ -411,6 +433,7 @@ button:focus-visible {
       width: 400px;
       max-width: 100%;
       height: auto;
+      animation: moveText 5s ease-in-out;
     }
 
     .second-section-img-right {
@@ -419,10 +442,12 @@ button:focus-visible {
       max-width: 400px;
       height: auto;
       margin-top: 40px;
+      animation: moveText 5s ease-in-out;
     }
 
     .hp-second-image-left {
       margin-right: 20px; /* Adjust the margin as needed */
+      animation: moveText 5s ease-in-out;
     }
 
 
