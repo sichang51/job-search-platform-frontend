@@ -57,11 +57,11 @@ export function Header() {
               </li>
             </ul>
             <ul className="navbar-nav ms-auto me-0">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/jobs/new">
                   Post a Job
                 </Link>
-              </li>
+              </li> */}
               {localStorage.jwt === undefined ? (
                 <>
                   <li className="nav-item">

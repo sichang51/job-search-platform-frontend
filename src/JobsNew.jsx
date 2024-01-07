@@ -10,7 +10,7 @@ export function JobsNew(props) {
     const params = new FormData(event.target);
     setLoading(true);
 
-    props.onCreateJOb(params, () => {
+    props.onCreateJob(params, () => {
       setLoading(false);
       event.target.reset();
     });
