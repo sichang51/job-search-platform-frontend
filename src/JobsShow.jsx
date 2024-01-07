@@ -26,7 +26,7 @@ export function JobsShow(props) {
       <p>Location: {props.job.job_location}</p>
       <p>Job Type: {props.job.job_type}</p>
       <p>Salary: {props.job.job_salary_range}</p>
-      {/* <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div>
           Job Title: <input defaultValue={props.job.job_title} name="job-title" type="text" />
         </div>
@@ -38,11 +38,11 @@ export function JobsShow(props) {
         </div>
         <div>
           Salary Range: <input defaultValue={props.job.job_salary_range} name="job-salary-title" type="text" />
-        </div> */}
-      <button onClick={handleSave} className="modal-SaveJob-button" type="submit">
-        Save Job
-      </button>
-      {/* <div className="modal-button-container">
+        </div>
+        <button onClick={handleSave} className="modal-SaveJob-button" type="submit">
+          Save Job
+        </button>
+        {/* <div className="modal-button-container">
           <button className="modal-update-button" type="submit">
             Update Job
           </button>
@@ -50,7 +50,7 @@ export function JobsShow(props) {
             Remove Job
           </button>
         </div> */}
-      {/* </form> */}
+      </form>
     </div>
   );
 }
