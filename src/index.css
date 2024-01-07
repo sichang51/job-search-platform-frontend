@@ -320,6 +320,7 @@ button:focus-visible {
       margin: 0 auto;
       font-weight: bold;
       margin-left: 500px;
+      white-space: nowrap;
     }
 
     .homepage-section-2-right {
@@ -336,6 +337,14 @@ button:focus-visible {
       width: 400px;
       max-width: 100%;
       height: auto;
+    }
+
+    .second-section-img-right {
+      display: flex;
+      width: 400px;
+      max-width: 400px;
+      height: auto;
+      margin-top: 40px;
     }
 
     .hp-second-image-left {
@@ -433,11 +442,7 @@ button:focus-visible {
 }
 
 
-.second-section-img-right {
-  max-width: 400px;
-  height: auto;
-  margin-top: 250px;
-}
+
 
 .hp-second-left-text-container {
   display: flex;
