@@ -26,9 +26,9 @@ export function UsersIndex(props) {
 
   return (
     <div className="container text-center">
-      <h2>Your Profile</h2>
+      <h2 className="yourprofile-title">Your Profile</h2>
       <p>
-        Photo:{" "}
+        {" "}
         <img
           src={props.user.user_photo_url}
           alt="User Photo"
