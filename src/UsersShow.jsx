@@ -37,34 +37,35 @@ export function UsersShow(props) {
       <form onSubmit={handleSubmit}>
         <div className="modal-update-section">
           <div>
-            Name: <input defaultValue={props.user.user_name} name="name" type="string" />
+            Name: <input defaultValue={props.user.user_name} name="user_name" type="string" />
           </div>
           <div>
-            Email: <input defaultValue={props.user.user_email} name="email" type="string" />
+            Email: <input defaultValue={props.user.user_email} name="user_email" type="string" />
           </div>
           <div>
-            Phone Number: <input defaultValue={props.user.user_phn_num} name="phone number" type="string" />
+            Phone Number: <input defaultValue={props.user.user_phn_num} name="user_phn_num" type="string" />
           </div>
           <div>
-            Bio: <input defaultValue={props.user.user_bio} name="bio" type="text" />
+            Bio: <input defaultValue={props.user.user_bio} name="user_bio" type="text" />
           </div>
           <div>
-            Linkedin URL: <input defaultValue={props.user.user_linkedin_url} name="linkedin url" type="string" />
+            Linkedin URL: <input defaultValue={props.user.user_linkedin_url} name="user_linkedin_url" type="string" />
           </div>
           <div>
-            Twitter Handle: <input defaultValue={props.user.user_twitter_handle} name="twitter handle" type="string" />
+            Twitter Handle:{" "}
+            <input defaultValue={props.user.user_twitter_handle} name="user_twitter_handle" type="string" />
           </div>
           <div>
-            Website URL: <input defaultValue={props.user.user_website_url} name="website url" type="string" />
+            Website URL: <input defaultValue={props.user.user_website_url} name="user_website_url" type="string" />
           </div>
           <div>
-            Resume URL: <input defaultValue={props.user.user_resume_url} name="resume url" type="string" />
+            Resume URL: <input defaultValue={props.user.user_resume_url} name="user_resume_url" type="string" />
           </div>
           <div>
-            GitHub URL: <input defaultValue={props.user.user_github_url} name="github url" type="string" />
+            GitHub URL: <input defaultValue={props.user.user_github_url} name="user_github_url" type="string" />
           </div>
           <div>
-            Photo URL: <input defaultValue={props.user.user_photo_url} name="photo url" type="string" />
+            Photo URL: <input defaultValue={props.user.user_photo_url} name="user_photo_url" type="string" />
           </div>
         </div>
         <div className="modal-button-container">

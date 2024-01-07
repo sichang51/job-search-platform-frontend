@@ -106,28 +106,6 @@ export function Content() {
     });
   };
 
-  const handleCreateUser = (params, successCallback) => {
-    console.log("handleCreateUser", params);
-    axios
-      .post("http://localhost:3000/users.json", params)
-      .then((response) => {
-        console.log("Create user success:", response.data);
-        setUsers([...users, response.data]);
-        successCallback();
-      })
-      .catch((error) => {
-        console.error("Create user error:", error);
-
-        console.log("Request Config:", error.config);
-
-        if (error.response) {
-          console.log("Error Response Data:", error.response.data);
-          console.log("Error Response Status:", error.response.status);
-          console.log("Error Response Headers:", error.response.headers);
-        }
-      });
-  };
-
   const handleShowUser = () => {
     axios.get(`http://localhost:3000/current_user.json`).then((response) => {
       console.log(response.data, "hello");
@@ -146,11 +124,23 @@ export function Content() {
   const handleUpdateUser = (id, params) => {
     console.log("handleUpdateUser", params);
     axios
-      .patch(`http://localhost:3000/users/${user.id}.json`, params)
+      .patch(`http://localhost:3000/users/${id}.json`, params)
       .then((response) => {
         console.log("User updated successfully:", response.data);
-        setUsers(users.filter((r) => r.id !== user.id));
+        setUsers(
+          users.map((user) => {
+            if (user.id === response.data.id) {
+              return response.data;
+            } else {
+              return user;
+            }
+          })
+        );
+        setCurrentUser(response.data);
+        setIsUsersShowVisible(false);
         handleClose();
+        // force refresh-----------------------------
+        location.reload();
       })
       .catch((error) => {
         console.error("Error updating user:", error);
