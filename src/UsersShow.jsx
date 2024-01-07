@@ -73,8 +73,8 @@ export function UsersShow(props) {
           <button className="modal-update-button" type="submit">
             Update User
           </button>
-          <button className="modal-destroy-button" onClick={handleClick}>
-            Delete User
+          <button className="modal-removeuser-button" onClick={handleClick}>
+            Remove User
           </button>
         </div>
       </form>

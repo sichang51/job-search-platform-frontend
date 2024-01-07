@@ -300,6 +300,18 @@ button:focus-visible {
       color: #05d363;
     }
 
+    .modal-removeuser-button {
+      background-color: #d1114d;
+      color: white;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .modal-removeuser-button:hover {
+      background-color: white;
+      color: #d1114d;
+      border-color: #d1114d;
+    }
+
     .bio-large-textbox {
       width: 50%;
       height: 150px;
@@ -442,30 +454,28 @@ button:focus-visible {
       color: #333e49;
     }
 
-    /* Additional styling for the second section */
-.homepage-section-2-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px; /* Adjust the max-width based on your design */
-  margin: 0 auto;
-}
+        /* Additional styling for the second section */
+    .homepage-section-2-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px; /* Adjust the max-width based on your design */
+      margin: 0 auto;
+    }
 
 
+    .hp-second-left-text-container {
+      display: flex;
+      justify-content: center;
+    }
 
-
-.hp-second-left-text-container {
-  display: flex;
-  justify-content: center;
-}
-
-.hp-second-text-header {
-  color: #333e49;
-  font-size: 25px;
-  font-weight: bold;
-  margin-left: 20px;
-  margin-top: 10px;
-}
+    .hp-second-text-header {
+      color: #333e49;
+      font-size: 25px;
+      font-weight: bold;
+      margin-left: 20px;
+      margin-top: 10px;
+    }
 
 
     .saved-job-modal-remove-button {
