@@ -65,9 +65,9 @@ export function Homepage() {
       {/* First Blank Section */}
       <div className="homepage-section-1 mb-4 pt-4 pb-4">
         <h2 className="hp-title">{/* <b>Job Hound</b> */}</h2>
-        <h6 className="hp-line">
+        <h4 className="hp-line">
           <b>Providing employment solutions for everyone.</b>
-        </h6>
+        </h4>
         <p className="hp-co-text">
           <b>
             Wherever you are on your career journey, Job Hound makes it easier for workers and companies to find the

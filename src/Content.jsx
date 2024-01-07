@@ -14,6 +14,7 @@ import { Signup } from "./Signup";
 import { Login } from "./Login";
 // Import the new component
 import { Homepage } from "./Homepage.jsx";
+import AboutUs from "./AboutUs";
 import { SavedJobsIndex } from "./SavedJobsIndex";
 import { SavedJobsShow } from "./SavedJobsShow";
 
@@ -257,6 +258,7 @@ export function Content() {
             )
           }
         />
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
 
       <Modal className="job-modal" show={isJobsShowVisible} onClose={handleClose}>
