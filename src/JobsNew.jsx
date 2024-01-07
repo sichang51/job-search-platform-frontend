@@ -44,7 +44,9 @@ export function JobsNew(props) {
           <div>
             Salary Range: <input name="job_salary_range" type="string" />
           </div>
-          <button type="submit">Create Job</button>
+          <button type="submit" className="create-job-button">
+            Create Job
+          </button>
         </form>
       </div>
     </div>
