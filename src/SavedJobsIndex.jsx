@@ -55,6 +55,7 @@ export function SavedJobsIndex(props) {
               <div className="company-logo">
                 <img src={job.company.co_logo} alt="logo" className="company-logo" width="100" height="125" />
                 <div>{job.company.co_name}</div>
+                <div>{job.job.job_title}</div>
                 <div>{job.company.co_location}</div>
               </div>
               <button className="btn btn-secondary" onClick={() => handleShowJob(job)}>
