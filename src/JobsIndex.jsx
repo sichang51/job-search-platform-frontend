@@ -6,8 +6,8 @@ export function JobsIndex(props) {
 
   return (
     <div id="jobs-index" className="container text-center">
-      <h1>All Jobs</h1>
-      Search Jobs:{" "}
+      <h1 className="alljobs-title">All Jobs</h1>
+      <div>Search Jobs: </div>
       <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} list="job-titles" />
       <datalist id="job-titles">
         {props.myJobs.map((job) => (

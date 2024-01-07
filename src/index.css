@@ -554,6 +554,11 @@ button:focus-visible {
       margin-top: 10px;
     }
 
+    .alljobs-title {
+      color: #05d363;
+      font-weight: bold;
+    }
+
 
     .saved-job-modal-remove-button {
       background: #d1114d;
