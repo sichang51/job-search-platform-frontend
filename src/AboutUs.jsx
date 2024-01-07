@@ -40,7 +40,7 @@ function AboutUs() {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <h5>Company Name</h5>
+            <h5>Job Hound</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, velit vel mattis euismod.</p>
           </div>
           <div className="col-md-3">
