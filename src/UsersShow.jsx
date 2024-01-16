@@ -1,9 +1,13 @@
 import { useState } from "react";
 
 export function UsersShow(props) {
+  const [uploadedImg, setUploadingImg] = useState(null);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
+    params.append("image_file", uploadedImg);
+    console.log(Object.fromEntries(params));
     props.onUpdateUser(props.user.id, params);
     event.target.reset();
   };
@@ -12,6 +16,12 @@ export function UsersShow(props) {
     props.onDestroyUser(props.user);
   };
   console.log(props);
+
+  const handleSetFile = (event) => {
+    if (event.target.files.length > 0) {
+      setUploadingImg(event.target.files[0]);
+    }
+  };
 
   return (
     <div className="user-profile">
@@ -66,7 +76,8 @@ export function UsersShow(props) {
             GitHub URL: <input defaultValue={props.user.user_github_url} name="user_github_url" type="string" />
           </div>
           <div>
-            Photo URL: <input defaultValue={props.user.user_photo_url} name="user_photo_url" type="string" />
+            {/* Photo URL: <input defaultValue={props.user.user_photo_url} name="user_photo_url" type="string" /> */}
+            Upload Image: <input type="file" onChange={handleSetFile} />
           </div>
         </div>
         <div className="modal-button-container">

@@ -146,6 +146,7 @@ export function Content() {
       })
       .catch((error) => {
         console.error("Error updating user:", error);
+        console.log("Detailed error response:", error.response); // Log detailed error response
       });
   };
 
@@ -198,10 +199,6 @@ export function Content() {
           path="/jobs/new"
           element={localStorage.jwt ? <JobsNew onCreateJob={handleCreateJob} /> : <Navigate to="/login" replace />}
         />
-
-        {/* <Route path="/jobs/new" element={<JobsNew onCreateJob={handleCreateJob} />} /> */}
-        {/* used for the homepage below */}
-        {/* <Route path="/" element={<JobsIndex myJobs={jobs} onShowJob={handleShowJob} />} /> */}
 
         <Route
           path="/jobs"
